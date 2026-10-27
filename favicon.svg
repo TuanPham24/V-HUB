@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="V-HUB">
+  <rect width="64" height="64" rx="14" fill="#0A1A3C" />
+  <path d="M14 20h7l6 18 6-18h7L31 45h-8L14 20z" fill="#FFFFFF" />
+  <rect x="43" y="20" width="6" height="25" rx="1.5" fill="#EE4D2D" />
+  <rect x="43" y="20" width="14" height="6" rx="1.5" fill="#FFFFFF" opacity="0.9" />
+  <rect x="43" y="31" width="14" height="6" rx="1.5" fill="#FFFFFF" opacity="0.55" />
+</svg>

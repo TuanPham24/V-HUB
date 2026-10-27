@@ -1,0 +1,16 @@
+{
+  "name": "vhub-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "V-HUB — website hệ thống MCN thương mại điện tử VTV Nam Bộ",
+  "scripts": {
+    "start": "node scripts/serve-local.mjs",
+    "build": "node scripts/build-check.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "lint": "node --check server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

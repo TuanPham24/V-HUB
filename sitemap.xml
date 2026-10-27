@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  V-HUB sitemap.
+  Lưu ý: website hiện là ứng dụng một trang (hash routing) trên Cloudflare Worker.
+  Các URL dưới đây phản ánh đúng cấu trúc trang của site. Khi triển khai Next.js
+  hoặc bản nhiều trang, thay "#/" bằng đường dẫn sạch (path-based routing).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://vhub.vn/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/nhan-hang</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/doanh-nghiep-vua-va-nho</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/dia-phuong-ocop</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/brand-live-house</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/van-hanh-tmdt-da-tuyen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/thuong-hieu-ip-vtv</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/video-ai-tvc-ai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/booking-creator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/khoi-dong-tmdt</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/dao-tao-doi-ngu</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/cho-phien-dia-phuong</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/giai-phap/mega-xuc-tien</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/studio</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vhub.vn/#/studio/super-megalive</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/studio/megalive-01</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/studio/tieu-chuan-02</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/studio/tieu-chuan-03</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/studio/mini-pod-01</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/studio/mini-pod-02</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/studio/dat-lich</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/kocviet</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vhub.vn/#/kocviet/tim-kiem</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/kocviet/dinh-danh</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/kocviet/dai-su</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/kocviet/affiliate</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/minh-bach</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/vinh-long</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/can-tho</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/an-giang</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/ca-mau</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/ben-tre</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/tien-giang</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://vhub.vn/#/cho-phien/long-an</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://vhub.vn/#/lich-live</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vhub.vn/#/hoc-vien</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vhub.vn/#/hoc-vien/video-ai</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/hoc-vien/tvc-ai</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/hoc-vien/phim-ai</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/hoc-vien/livestream-ban-hang</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/du-an</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/du-an/nha-may-thoi-trang</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/du-an/bep-co-tu</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/du-an/dua-xanh-ben-tre</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/tin-tuc</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/tin-tuc/chinh-danh-nha-sang-tao-vi-sao-quan-trong</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/tin-tuc/daily-live-va-megalive-khi-nao-dung-gi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/tin-tuc/chuyen-doi-so-cho-ocop</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/tin-tuc/an-toan-thuong-hieu-trong-livestream</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vhub.vn/#/ve-v-hub</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vhub.vn/#/lien-he</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vhub.vn/#/chinh-sach-bao-mat</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://vhub.vn/#/dieu-khoan</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

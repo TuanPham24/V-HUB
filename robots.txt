@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /#/admin
+Disallow: /api/admin/
+
+# V-HUB — vhub.vn
+Sitemap: https://vhub.vn/sitemap.xml
