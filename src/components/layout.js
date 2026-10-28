@@ -38,39 +38,64 @@ function megaMarkup(item) {
   const feature = item.mega === 'solutions' ? MEGA_FEATURE() : ''
   return `<div class="mega" role="group" aria-label="${esc(item.label)}">
     <div class="container mega__inner" style="${feature ? '' : 'grid-template-columns:1fr'}">
-      <div class="mega__groups" style="${item.groups.length < 3 ? 'grid-template-columns:repeat(2,minmax(0,1fr))' : ''}">${groups}</div>
+      <div class="mega__groups" style="grid-template-columns:repeat(${Math.max(1, item.groups.length)},minmax(0,1fr))">${groups}</div>
       ${feature}
     </div>
   </div>`
 }
 
-export function headerMarkup() {
+function primaryNav() {
+  const services = NAV.find(n => n.id === 'giai-phap')
+  return [
+    { id: 'home', label: tr('Trang chủ', 'Home'), href: '#/' },
+    { ...NAV.find(n => n.id === 've-v-hub'), label: tr('Về V-HUB', 'About V-HUB') },
+    { ...services, label: tr('Dịch vụ', 'Services'), groups: [
+      ...services.groups,
+      { title: tr('Khám phá V-HUB', 'Explore V-HUB'), links: [
+        { label: 'Studio', href: '#/studio' },
+        { label: tr('Học viện', 'Academy'), href: '#/hoc-vien' },
+        { label: tr('Chợ Phiên Phương Nam', 'Southern Market Days'), href: '#/cho-phien' },
+        { label: tr('Lịch live', 'Live schedule'), href: '#/lich-live' },
+      ] },
+    ] },
+    { ...NAV.find(n => n.id === 'kocviet'), label: tr('Nhà sáng tạo', 'Creators') },
+    { id: 'news', label: tr('Tin tức', 'News'), href: '#/tin-tuc' },
+    { id: 'contact', label: tr('Liên hệ', 'Contact'), href: '#/lien-he' },
+  ]
+}
+
+function brandMarkup() {
+  return '<img class="brand__logo" src="/images/brand/vhub-logo.png" alt="V-HUB — Value | Innovate | Trust" width="415" height="152" />'
+}
+
+function languagePicker(id) {
   const lang = getLang()
-  const nav = NAV.map(
+  return `<details class="language-picker">
+    <summary aria-label="${tr('Chọn ngôn ngữ', 'Choose language')}">${icon('globe', 'language-picker__globe')}<span>${lang === 'vi' ? 'VN' : 'EN'}</span>${icon('chevronDown', 'language-picker__chevron')}</summary>
+    <div class="language-picker__options" id="${id}">
+      <button type="button" data-lang="vi" aria-pressed="${lang === 'vi'}" lang="vi">VN · Tiếng Việt</button>
+      <button type="button" data-lang="en" aria-pressed="${lang === 'en'}" lang="en">EN · English</button>
+    </div>
+  </details>`
+}
+
+export function headerMarkup() {
+  const nav = primaryNav().map(
     (item) => `<div class="has-mega" data-nav-item="${esc(item.id)}">
       <a class="nav-link" href="${esc(item.href)}" data-nav-link="${esc(item.id)}">${esc(item.label)}</a>
       ${megaMarkup(item)}
     </div>`,
   ).join('')
 
-  return `<header class="site-header" id="site-header">
+  return `<header class="site-header site-header--commerce" id="site-header">
     <div class="container header__inner">
       <a class="brand" href="#/" aria-label="V-HUB — về trang chủ">
-        <span class="brand__mark">VH</span>
-        <span class="brand__text">
-          <span class="brand__name">V-HUB</span>
-          <span class="brand__sub">VTV Nam Bộ</span>
-        </span>
+        ${brandMarkup()}
       </a>
       <nav class="header__nav" aria-label="Điều hướng chính">${nav}</nav>
       <div class="header__actions">
-        <span id="header-live" class="header__live"></span>
-        <a class="header__hotline" href="${ORG.hotlineHref}" aria-label="Gọi hotline ${esc(ORG.hotline)}">${icon('phone')}<span>${esc(ORG.hotline)}</span></a>
-        <div class="header__lang" role="group" aria-label="Ngôn ngữ">
-          <button type="button" data-lang="vi" aria-pressed="${lang === 'vi'}">VI</button>
-          <button type="button" data-lang="en" aria-pressed="${lang === 'en'}">EN</button>
-        </div>
-        <a class="btn btn--sm header__cta" href="#/lien-he">${tr('Đặt lịch tư vấn', 'Book a consultation')}</a>
+        ${languagePicker('header-language-options')}
+        <a class="btn btn--sm header__cta" href="#/lien-he">${tr('Hợp tác ngay', 'Partner with us')}${icon('arrowRight', 'btn__icon')}</a>
         <button class="menu-toggle" type="button" aria-label="${tr('Mở menu', 'Open menu')}" aria-expanded="false" aria-controls="mobile-nav" id="menu-toggle">${icon('menu')}</button>
       </div>
     </div>
@@ -82,8 +107,8 @@ export function mobileNavMarkup() {
   const doors = AUDIENCES.slice(0, 4)
     .map((a) => `<a class="mobile-door" href="${esc(a.href)}">${esc(a.title)}<span>${esc(a.short)}</span></a>`)
     .join('')
-  const items = NAV.map(
-    (item, i) => `<div class="accordion-item">
+  const items = primaryNav().map(
+    (item, i) => item.groups?.length ? `<div class="accordion-item">
       <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="mnav-${i}">
         <span>${esc(item.label)}</span>${icon('chevronDown')}
       </button>
@@ -94,12 +119,12 @@ export function mobileNavMarkup() {
           .map((l) => `<a href="${esc(l.href)}">${esc(l.label)}</a>`)
           .join('')}
       </div>
-    </div>`,
+    </div>` : `<a class="mobile-nav__link" href="${esc(item.href)}">${esc(item.label)}</a>`,
   ).join('')
 
   return `<div class="mobile-nav" id="mobile-nav" aria-label="${tr('Menu di động', 'Mobile menu')}" aria-hidden="true">
     <div class="mobile-nav__head">
-      <a class="brand" href="#/"><span class="brand__mark">VH</span><span class="brand__text"><span class="brand__name">V-HUB</span><span class="brand__sub">VTV Nam Bộ</span></span></a>
+      <a class="brand" href="#/" aria-label="V-HUB — về trang chủ">${brandMarkup()}</a>
       <button class="menu-toggle" type="button" aria-label="${tr('Đóng menu', 'Close menu')}" id="menu-close">${icon('close')}</button>
     </div>
     <div class="mobile-nav__body">
@@ -112,10 +137,6 @@ export function mobileNavMarkup() {
         <a class="btn btn--block" href="#/lien-he">${tr('Đặt lịch tư vấn', 'Book a consultation')}</a>
         <a class="btn btn--ghost btn--block" href="${ORG.hotlineHref}">${icon('phone', 'btn__icon')}<span>${esc(ORG.hotline)}</span></a>
         <a class="btn btn--ghost btn--block" href="${ORG.zalo}" target="_blank" rel="noopener">${icon('zalo', 'btn__icon')}<span>${tr('Chat Zalo OA', 'Chat on Zalo')}</span></a>
-        <div class="header__lang" style="align-self:flex-start">
-          <button type="button" data-lang="vi" aria-pressed="${getLang() === 'vi'}">VI</button>
-          <button type="button" data-lang="en" aria-pressed="${getLang() === 'en'}">EN</button>
-        </div>
       </div>
     </div>
   </div>`
@@ -150,8 +171,7 @@ export function footerMarkup() {
       <div class="footer__top">
         <div class="footer__brand">
           <div class="footer__logo">
-            <span class="brand__mark">VH</span>
-            <span class="brand__text"><span class="brand__name">V-HUB</span><span class="brand__sub">VTV Nam Bộ</span></span>
+            ${brandMarkup()}
           </div>
           <p class="footer__tagline">${esc(ORG.tagline)}</p>
           <p class="footer__desc">${tr('Hệ thống MCN thương mại điện tử thuộc hệ sinh thái VTV Nam Bộ. Đào tạo, định danh nhà sáng tạo, sản xuất nội dung, livestream và vận hành TMĐT đa tuyến.', 'An e-commerce MCN in the VTV Nam Bộ ecosystem: training, creator verification, content production, livestream and multi-channel commerce operations.')}</p>
@@ -195,7 +215,7 @@ export function footerMarkup() {
       </div>
       <div class="footer__meta">
         <div class="footer__contact">
-          <p style="color:#fff;font-weight:600">${esc(ORG.legalName)}</p>
+          <p style="color:var(--on-surface);font-weight:600">${esc(ORG.legalName)}</p>
           <p>${icon('pin')} ${esc(ORG.address)}</p>
           <p>${icon('phone')} <a href="${ORG.hotlineHref}">${esc(ORG.hotline)}</a> · ${icon('mail')} <a href="${ORG.emailHref}">${esc(ORG.email)}</a></p>
           <p>${icon('clock')} ${esc(ORG.hours)}</p>
@@ -256,12 +276,6 @@ export function attachLayout(_app) {
   if (close) close.addEventListener('click', closeMenu)
   if (mobileNav) {
     on(mobileNav, 'click', 'a', () => closeMenu())
-    on(mobileNav, 'click', '.accordion-trigger', (_e, trigger) => {
-      const panel = document.getElementById(trigger.getAttribute('aria-controls'))
-      const expanded = trigger.getAttribute('aria-expanded') === 'true'
-      trigger.setAttribute('aria-expanded', String(!expanded))
-      if (panel) panel.classList.toggle('is-open', !expanded)
-    })
   }
 
   // Nút liên hệ nổi
@@ -280,11 +294,22 @@ export function attachLayout(_app) {
     document.addEventListener('click', (e) => {
       const langBtn = e.target.closest('[data-lang]')
       if (langBtn) setLang(langBtn.getAttribute('data-lang'))
+      document.querySelectorAll('.language-picker[open]').forEach((picker) => {
+        if (!picker.contains(e.target)) picker.open = false
+      })
       const floatingPanel = document.getElementById('floating-panel')
       const floatingTrigger = document.getElementById('floating-trigger')
       if (floatingPanel && floatingPanel.classList.contains('is-open') && !e.target.closest('#floating-contact')) {
         floatingPanel.classList.remove('is-open')
         if (floatingTrigger) floatingTrigger.setAttribute('aria-expanded', 'false')
+      }
+    })
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return
+      const picker = document.querySelector('.language-picker[open]')
+      if (picker) {
+        picker.open = false
+        picker.querySelector('summary').focus()
       }
     })
     window.addEventListener(
@@ -353,19 +378,23 @@ export function updateHeaderLive() {
 }
 
 export function markActiveNav(route) {
-  $$('[data-nav-link], .mega__link, .footer__col a').forEach((a) => a.removeAttribute('aria-current'))
+  $$('[data-nav-link], .mega__link, .footer__col a').forEach((a) => {
+    a.removeAttribute('aria-current')
+    a.classList.remove('is-active')
+  })
   const root = (route || '').split('/')[1] || ''
   const map = {
+    '': 'home',
     'giai-phap': 'giai-phap',
-    studio: 'studio',
+    studio: 'giai-phap',
     kocviet: 'kocviet',
-    'cho-phien': 'cho-phien',
-    'hoc-vien': 'hoc-vien',
+    'cho-phien': 'giai-phap',
+    'hoc-vien': 'giai-phap',
     've-v-hub': 've-v-hub',
     'du-an': 've-v-hub',
-    'tin-tuc': 've-v-hub',
-    'lien-he': 've-v-hub',
-    'lich-live': 'cho-phien',
+    'tin-tuc': 'news',
+    'lien-he': 'contact',
+    'lich-live': 'giai-phap',
   }
   const id = map[root]
   if (!id) return

@@ -29,76 +29,36 @@ import { leadFormMarkup } from '../components/forms.js'
 
 /* 1. Hero */
 function heroSection() {
-  const live = getCurrentLive()
-  const next = getLives()
-    .filter((s) => liveState(s) === 'upcoming')
-    .sort((a, b) => a.starts_at - b.starts_at)[0]
-  return `<section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__copy">
-        <span class="hero__kicker"><span class="pixels" aria-hidden="true"><span></span><span></span><span></span></span>${tr('Hệ sinh thái VTV Nam Bộ', 'VTV Nam Bộ ecosystem')}</span>
-        <h1 class="hero__title">${tr('Đưa hàng Việt lên sóng —', 'Bring Vietnamese goods to air —')} <em>${tr('chính danh, chuyên nghiệp, ra doanh số.', 'legitimate, professional, sales-driven.')}</em></h1>
-        <p class="hero__sub">${tr('Một đầu mối từ đào tạo, định danh nhà sáng tạo, livestream đến vận hành bán hàng đa tuyến.', 'One partner for training, creator verification, livestream and multi-channel commerce operations.')}</p>
-        <div class="hero__actions">
-          <a class="btn btn--hero" href="#/lien-he">${tr('Đặt lịch tư vấn 60 phút', 'Book a 60-minute consultation')}${icon('arrowRight', 'btn__icon')}</a>
-          <a class="btn btn--outline-light" href="${live ? '#/lich-live' : '#/lich-live'}">${live ? `${badgeLive()}` : ''}<span>${tr('Xem phiên đang live', 'Watch live')}</span></a>
+  return `<section class="commerce-hero" aria-labelledby="home-title">
+    <div class="commerce-hero__image"><img src="/images/home/creator-studio.png" alt="Minh họa nhà sáng tạo giới thiệu sản phẩm trong studio livestream" fetchpriority="high" decoding="async" /><span class="commerce-hero__image-note">${tr('Ảnh minh họa', 'Illustration')}</span></div>
+    <div class="container commerce-hero__inner">
+      <div class="commerce-hero__copy">
+        <span class="commerce-hero__eyebrow">${tr('MCN thương mại điện tử · V-HUB', 'E-commerce MCN · V-HUB')}</span>
+        <h1 id="home-title">${tr('MCN thương mại điện tử', 'E-commerce MCN')}<em>${tr('Kiến tạo giá trị thật', 'Creating real value')}</em>${tr('cùng nhà sáng tạo', 'with creators')}</h1>
+        <p>${tr('Đồng hành cùng nhà sáng tạo, thương hiệu và doanh nghiệp bứt phá doanh số với livestream, social commerce và giải pháp tăng trưởng toàn diện.', 'Helping creators, brands and businesses grow through livestream, social commerce and comprehensive growth solutions.')}</p>
+        <div class="commerce-hero__actions">
+          <a class="btn commerce-button" href="#/lien-he">${tr('Hợp tác cùng V-HUB', 'Partner with V-HUB')}${icon('arrowRight', 'btn__icon')}</a>
+          <a class="btn commerce-button commerce-button--outline" href="#/giai-phap">${tr('Tìm hiểu dịch vụ', 'Explore services')}</a>
         </div>
-        <div class="hero__trust">
-          <span>${icon('shield')}${tr('Bảo chứng nhà đài', 'Broadcaster-backed')}</span>
-          <span>${icon('camera')}${tr('Cụm 14 studio', '14-studio cluster')}</span>
-          <span>${icon('verified')}${tr('KOC định danh trước khi lên sóng', 'Verified creators only')}</span>
-        </div>
-      </div>
-      <div class="hero__visual">
-        <div class="hero__frame">
-          ${media({ label: tr('Ảnh/video thật: Super-Megalive Studio đang lên sóng', 'Real footage: Super-Megalive Studio on air'), ratio: '16x9', dark: true, badge: live ? badgeLive() : '' })}
-          <div class="hero__frame-foot">
-            <span>${tr('Studio Super-Megalive · 232/14 Võ Thị Sáu, TP.HCM', 'Super-Megalive Studio · 232/14 Vo Thi Sau, HCMC')}</span>
-            <span class="tricolor tricolor--sm" aria-hidden="true"><span></span><span></span><span></span></span>
-          </div>
-        </div>
-        <div class="hero__now">
-          ${
-            live
-              ? `<div class="hero__now-top">${badgeLive()} <span>${tr('Đang phát', 'On air')}</span></div>
-                 <strong>${esc(live.title)}</strong>
-                 <span>${esc(live.brand)} · ${tr('kết thúc', 'ends')} ${formatTime(liveEndsAt(live))}</span>
-                 <a class="btn btn--link btn--sm" href="#/lich-live" style="padding-left:0">${tr('Vào xem phiên live', 'Join the session')}${icon('arrowRight', 'btn__icon btn__arrow')}</a>`
-              : next
-                ? `<div class="hero__now-top">${icon('calendar')} <span>${tr('Phiên kế tiếp', 'Next session')}</span></div>
-                   <strong>${esc(next.title)}</strong>
-                   <span>${formatDateTime(next.starts_at)}</span>
-                   <a class="btn btn--link btn--sm" href="#/lich-live" style="padding-left:0">${tr('Xem lịch live', 'View schedule')}${icon('arrowRight', 'btn__icon btn__arrow')}</a>`
-                : `<div class="hero__now-top">${icon('calendar')} <span>${tr('Lịch live', 'Schedule')}</span></div><strong>${tr('Lịch tuần này đang cập nhật', 'This week is being updated')}</strong><a class="btn btn--link btn--sm" href="#/lich-live" style="padding-left:0">${tr('Xem trang lịch live', 'Open schedule')}</a>`
-          }
+        <div class="commerce-hero__facts">
+          <div><strong>14</strong><span>${tr('Studio theo biên bản ghi nhớ', 'Studios in the MOU')}</span></div>
+          <div><strong>4</strong><span>${tr('Khóa học tại trường quay', 'On-set courses')}</span></div>
+          <div><strong>10%</strong><span>${tr('Doanh thu Chợ Phiên trích quỹ', 'Market revenue to charity')}</span></div>
         </div>
       </div>
     </div>
   </section>`
 }
 
-/* 2. Cửa vào theo người xem */
+/* 2. Các dịch vụ chính */
 function doorsSection() {
-  const doors = AUDIENCES.slice(0, 4)
-    .map(
-      (a) => `<a class="door" href="${esc(a.href)}">
-        ${iconTile(a.icon)}
-        <span class="door__title">${esc(tr(a.title, a.id === 'nhan-hang' ? 'Brands & corporations' : a.id === 'dia-phuong' ? 'Localities & OCOP' : a.id === 'nha-sang-tao' ? 'Creators' : 'Learners'))}</span>
-        <span class="door__desc">${esc(tr(a.short, a.id === 'nhan-hang' ? 'Broadcast-grade livestream, verified creators, measurable sales.' : a.id === 'dia-phuong' ? 'Take local specialties nationwide with VTV Nam Bộ.' : a.id === 'nha-sang-tao' ? 'Get verified on KOCViet and receive bookings from trusted brands.' : 'Learn livestream, Video AI, TVC AI and Film AI at the studio.'))}</span>
-        <span class="door__arrow">${icon('arrowRight')}</span>
-      </a>`,
-    )
-    .join('')
-  return `<section class="doors" aria-labelledby="doors-title">
-    <div class="container">
-      <div class="door-grid">${doors}</div>
-      <div class="door-foot">
-        <span>${tr('Bạn là doanh nghiệp vừa và nhỏ?', 'Small or medium business?')}</span>
-        <a class="hover-underline" href="#/giai-phap/doanh-nghiep-vua-va-nho" style="color:var(--primary-deep);font-weight:600">${tr('Xem lộ trình 90 ngày', 'See the 90-day track')} ${icon('arrowRight', 'btn__icon')}</a>
-        <span style="margin-left:auto">${badgeDemo()}</span>
-      </div>
-    </div>
-  </section>`
+  const services = [
+    { icon: 'camera', title: tr('Livestream bán hàng', 'Livestream commerce'), body: tr('Sản xuất, vận hành và tối ưu livestream đa nền tảng, giúp thương hiệu bứt phá doanh số.', 'Produce, operate and optimise multi-platform livestreams to grow your brand.'), href: '#/giai-phap/brand-live-house' },
+    { icon: 'users', title: tr('Mạng lưới nhà sáng tạo', 'Creator network'), body: tr('Kết nối và phát triển cộng đồng creator đa lĩnh vực, từ nhà sáng tạo mới đến chuyên nghiệp.', 'Connect and develop creators across categories, from emerging talent to professionals.'), href: '#/kocviet' },
+    { icon: 'shopee', title: 'Social Commerce', body: tr('Xây dựng kênh bán hàng trên TikTok, Shopee, Facebook và nhiều nền tảng khác.', 'Build commerce channels on TikTok, Shopee, Facebook and beyond.'), href: '#/giai-phap/van-hanh-tmdt-da-tuyen' },
+    { icon: 'signal', title: tr('Giải pháp tăng trưởng', 'Growth solutions'), body: tr('Chiến lược toàn diện về nội dung, vận hành và dữ liệu, đồng hành cùng thương hiệu tăng trưởng bền vững.', 'Comprehensive content, operations and data strategies for sustainable brand growth.'), href: '#/giai-phap' },
+  ]
+  return `<section class="commerce-services" aria-label="${tr('Dịch vụ V-HUB', 'V-HUB services')}"><div class="container commerce-services__grid">${services.map(s => `<a class="commerce-service" href="${s.href}"><div class="commerce-service__heading">${icon(s.icon)}<div><h2>${esc(s.title)}</h2><span class="tricolor tricolor--sm" aria-hidden="true"><span></span><span></span><span></span></span></div></div><p>${esc(s.body)}</p><span class="commerce-service__arrow">${icon('arrowRight')}</span></a>`).join('')}</div></section>`
 }
 
 /* 3. Bảo chứng + 6 lý do */

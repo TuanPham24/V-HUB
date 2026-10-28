@@ -167,7 +167,11 @@ export function accordion(items, idPrefix = 'acc') {
     .join('')}</div>`
 }
 
+const accordionRoots = new WeakSet()
+
 export function attachAccordions(root = document) {
+  if (!root || accordionRoots.has(root)) return
+  accordionRoots.add(root)
   on(root, 'click', '.accordion-trigger', (_e, trigger) => {
     const expanded = trigger.getAttribute('aria-expanded') === 'true'
     const panel = document.getElementById(trigger.getAttribute('aria-controls'))

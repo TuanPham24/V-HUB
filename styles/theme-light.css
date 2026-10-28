@@ -1,0 +1,133 @@
+/* Nền sáng đồng nhất: trắng, xám nhạt và điểm nhấn cam. */
+:root {
+  --surface-alt: #f8f9fb;
+}
+
+/* Các khối trước đây dùng nền navy vẫn giữ cấu trúc và nội dung. */
+.section--navy,
+.page-hero--navy,
+.site-footer,
+.mega__feature {
+  --on-secondary: var(--on-surface);
+  --on-secondary-muted: var(--on-surface-muted);
+  --primary-on-dark: var(--primary-deep);
+  background: var(--surface-alt);
+  color: var(--on-surface);
+}
+
+.section--navy,
+.site-footer {
+  border-block: 1px solid var(--outline);
+}
+
+.page-hero,
+.page-hero--navy {
+  background: linear-gradient(115deg, #ffffff 12%, #f8f9fb 100%);
+  border-bottom: 1px solid var(--outline);
+}
+
+.commerce-hero {
+  background: var(--surface);
+}
+
+.commerce-hero::after {
+  background: linear-gradient(90deg, #fff 0%, #fff 31%, rgba(255,255,255,.98) 39%, rgba(255,255,255,.8) 47%, rgba(255,255,255,0) 65%);
+}
+
+.commerce-service {
+  background: var(--surface-alt);
+}
+
+.market-section::before {
+  background: radial-gradient(50% 70% at 18% 18%, rgba(238,77,45,.045), transparent 70%);
+}
+
+.card--navy,
+.countdown__box,
+.media--on-dark .media__placeholder {
+  background: var(--surface);
+  border-color: var(--outline);
+}
+
+.media--on-dark,
+.mega__feature {
+  border-color: var(--outline);
+}
+
+.media--on-dark .media__placeholder,
+.countdown__label,
+.stat__note {
+  color: var(--on-surface-muted);
+}
+
+.countdown__num {
+  color: var(--on-surface);
+}
+
+.badge--on-dark {
+  background: var(--surface-alt);
+  border-color: var(--outline);
+  color: var(--on-surface-muted);
+}
+
+.btn--on-dark {
+  --btn-bg: var(--primary-strong);
+  --btn-fg: #fff;
+}
+
+.btn--on-dark:hover {
+  --btn-fg: #fff;
+  --btn-bg: var(--primary-deep);
+  background: var(--btn-bg);
+}
+
+.btn--outline-light {
+  --btn-fg: var(--on-surface);
+  --btn-border: var(--outline-strong);
+}
+
+.btn--outline-light:hover {
+  --btn-bg: var(--primary-container);
+  background: var(--btn-bg);
+  border-color: var(--primary-deep);
+}
+
+.stats-updated,
+.footer__top,
+.footer__bottom,
+.footer__map,
+.footer__social a {
+  border-color: var(--outline);
+}
+
+.footer__col a,
+.footer__col p,
+.footer__contact a,
+.footer__social a {
+  color: var(--on-surface);
+}
+
+.footer__legal a:hover,
+.footer__contact a:hover {
+  color: var(--primary-deep);
+}
+
+.footer__social a:hover {
+  background: var(--primary-container);
+}
+
+.newsletter input {
+  background: var(--surface);
+  border-color: var(--outline-strong);
+  color: var(--on-surface);
+}
+
+.newsletter input::placeholder {
+  color: var(--on-surface-muted);
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .commerce-hero::after {
+    background: linear-gradient(90deg, #fff 0%, #fff 26%, rgba(255,255,255,.94) 47%, rgba(255,255,255,.1) 83%);
+  }
+}
