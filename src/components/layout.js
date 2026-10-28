@@ -48,7 +48,7 @@ export function headerMarkup() {
   const lang = getLang()
   const nav = NAV.map(
     (item) => `<div class="has-mega" data-nav-item="${esc(item.id)}">
-      <a class="nav-link" href="${esc(item.href)}" data-nav-link="${esc(item.id)}">${esc(item.label)}${icon('chevronDown')}</a>
+      <a class="nav-link" href="${esc(item.href)}" data-nav-link="${esc(item.id)}">${esc(item.label)}</a>
       ${megaMarkup(item)}
     </div>`,
   ).join('')

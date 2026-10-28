@@ -75,7 +75,7 @@ const PATHS = {
 
 export function icon(name, className = '') {
   const path = PATHS[name] || PATHS.info
-  return `<svg class="${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${path}</svg>`
+  return `<svg class="${className}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${path}</svg>`
 }
 
 export const ICON_NAMES = Object.keys(PATHS)
