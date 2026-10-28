@@ -30,7 +30,7 @@ import { leadFormMarkup } from '../components/forms.js'
 /* 1. Hero */
 function heroSection() {
   return `<section class="commerce-hero" aria-labelledby="home-title">
-    <div class="commerce-hero__image"><img src="/images/home/creator-studio.png" alt="Minh họa nhà sáng tạo giới thiệu sản phẩm trong studio livestream" fetchpriority="high" decoding="async" /><span class="commerce-hero__image-note">${tr('Ảnh minh họa', 'Illustration')}</span></div>
+    <div class="commerce-hero__image"><img src="/images/home/creator-studio.png" alt="Nhà sáng tạo giới thiệu sản phẩm trong studio livestream" fetchpriority="high" decoding="async" onerror="this.remove()" /><span class="commerce-hero__image-note">${tr('Ảnh thật: nhà sáng tạo trong studio livestream', 'Real photo: creator in the livestream studio')}</span></div>
     <div class="container commerce-hero__inner">
       <div class="commerce-hero__copy">
         <span class="commerce-hero__eyebrow">${tr('MCN thương mại điện tử · V-HUB', 'E-commerce MCN · V-HUB')}</span>

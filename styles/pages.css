@@ -31,7 +31,7 @@
 }
 .commerce-hero { position: relative; isolation: isolate; overflow: hidden; background: #fafafb; }
 .commerce-hero__inner { max-width: 1560px; padding-block: 64px 48px; min-height: 620px; display: flex; align-items: center; }
-.commerce-hero__image { position: absolute; inset: 0 0 0 38%; z-index: -2; }
+.commerce-hero__image { position: absolute; inset: 0 0 0 38%; z-index: -2; background: radial-gradient(120% 120% at 76% 16%, #fdece5 0%, #f8efe9 34%, #f0f1f5 68%, #e9ecf2 100%); }
 .commerce-hero__image img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
 .commerce-hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#fafafb 0%,#fafafb 31%,rgba(250,250,251,.97) 39%,rgba(250,250,251,.72) 47%,rgba(250,250,251,0) 62%); pointer-events: none; }
 .commerce-hero__image-note { position: absolute; right: 16px; bottom: 12px; padding: 3px 8px; border-radius: 5px; background: #ffffffc9; color: #5b6474; font-size: 10px; }

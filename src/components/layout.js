@@ -65,7 +65,9 @@ function primaryNav() {
 }
 
 function brandMarkup() {
-  return '<img class="brand__logo" src="/images/brand/vhub-logo.png" alt="V-HUB — Value | Innovate | Trust" width="415" height="152" />'
+  // Wordmark chữ: logo gốc (PNG) nằm trong repo nhưng hệ thống tệp của bản triển khai này chỉ
+  // nhận tệp văn bản, nên dùng phương án dự phòng đã quy định trong brief: chữ "V-HUB".
+  return `<span class="brand__mark" aria-hidden="true">VH</span><span class="brand__text"><span class="brand__name">V-HUB</span><span class="brand__sub">Value | Innovate | Trust</span></span>`
 }
 
 function languagePicker(id) {
