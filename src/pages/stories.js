@@ -243,7 +243,7 @@ export function renderAbout() {
               { title: 'Đối tác', body: tr('Nhãn hàng, KOC, chủ thể OCOP, đơn vị vận chuyển và nền tảng thương mại điện tử.', 'Brands, creators, OCOP producers, logistics partners and e-commerce platforms.'), icon: 'link' },
             ]
               .map((n, i) => `<article class="card">${iconTile(n.icon, 'navy')}<h3 class="card__title">${esc(n.title)}</h3><p class="card__body">${esc(n.body)}</p><div class="ecosystem-logos">${[
-                '<span class="partner-logo"><img src="/images/brand/vtv-logo.png" alt="VTV" loading="lazy" /></span>',
+                '<span class="partner-logo"><img src="/images/brand/vtv-nam-bo-logo.png" alt="VTV Nam Bộ" loading="lazy" /></span>',
                 '<span class="partner-logo partner-logo--wide"><img src="/images/brand/vhub-logo-hd.png" alt="V-HUB — Value | Innovate | Trust" loading="lazy" /></span>',
                 '<span class="partner-logo partner-logo--wide"><img src="/images/brand/netviettv-logo.png" alt="NetVietTV" loading="lazy" /></span><span class="partner-logo"><img src="/images/brand/hoa-binh-film-logo.png" alt="Hòa Bình Film" loading="lazy" /></span>',
               ][i]}</div></article>`)

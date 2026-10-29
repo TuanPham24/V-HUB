@@ -18,7 +18,7 @@ import { PLATFORMS } from '../lib/catalog-site.js'
 import { getLives } from '../lib/data.js'
 import { liveState } from '../lib/catalog-schedule.js'
 import { formatCurrency, formatDate, isValidPhone } from '../lib/format.js'
-import { media, linkArrow, sectionHead, iconTile, badgeVerified, badgeDemo, breadcrumb, emptyState, openModal } from '../components/ui.js'
+import { kocPortrait, media, linkArrow, sectionHead, iconTile, badgeVerified, badgeDemo, breadcrumb, emptyState, openModal } from '../components/ui.js'
 import { leadFormMarkup } from '../components/forms.js'
 import { submitLead } from '../lib/api.js'
 import { getUtm, sourcePage, track } from '../lib/store.js'
@@ -26,7 +26,7 @@ import { getUtm, sourcePage, track } from '../lib/store.js'
 function kocCard(k) {
   return `<article class="koc-card">
     <a class="koc-card__avatar" href="#/kocviet/${esc(k.slug)}" aria-label="${esc(k.name)}">
-      <span class="koc-initials" aria-hidden="true">${esc(k.name.split(' ').map((p) => p[0]).join('').slice(0, 2))}</span>
+      ${kocPortrait(k)}
       <span class="koc-verified">${badgeVerified('Đã định danh')}</span>
     </a>
     <div class="koc-card__body">
@@ -196,7 +196,7 @@ function profilePage(k) {
         </div>
         <div class="card" style="padding:10px">
           <div class="koc-card__avatar" style="aspect-ratio:1">
-            <span class="koc-initials">${esc(k.name.split(' ').map((p) => p[0]).join('').slice(0, 2))}</span>
+            ${kocPortrait(k)}
             <span class="koc-verified">${badgeVerified()}</span>
           </div>
           <div style="padding:10px" class="stack stack--sm">

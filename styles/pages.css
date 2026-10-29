@@ -5,7 +5,7 @@
 /* ---------- Trang chủ: creator commerce ---------- */
 .site-header--commerce { --header-h: 92px; }
 .site-header--commerce .header__inner { max-width: 1560px; height: var(--header-h); gap: 20px; }
-.brand__logo { display: block; width: 200px; height: auto; object-fit: contain; }
+.brand__logo { display: block; width: 200px; height: auto; object-fit: contain; mix-blend-mode: multiply; }
 .site-header--commerce .header__nav { gap: 20px; margin: 0; justify-content: center; }
 .site-header--commerce .header__actions { justify-self: end; margin-left: 0; gap: 20px; }
 .site-header--commerce .brand { justify-self: start; }
@@ -25,6 +25,16 @@
 .language-picker__options button[aria-pressed='true'] { background: var(--primary-container); color: var(--primary-deep); }
 .mobile-nav__head .brand__logo { width: 165px; }
 .mobile-nav__link { display: block; min-height: 52px; padding-block: 12px; border-bottom: 1px solid var(--outline); font-family: var(--font-heading); font-weight: 700; }
+.mega__link.is-active,
+.mobile-nav .accordion-panel a.is-active,
+.mobile-nav__link.is-active {
+  background: var(--primary-container);
+  color: var(--primary-deep);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+.mobile-nav .accordion-panel a.is-active,
+.mobile-nav__link.is-active { padding-inline: 12px; border-radius: 8px; }
 .footer__logo .brand__logo { width: 190px; }
 @media (min-width: 1024px) {
   .site-header--commerce .header__inner { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); }
@@ -1219,6 +1229,26 @@
   border: 1px solid var(--outline);
 }
 
+.koc-portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+.koc-ai-label {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgb(16 27 59 / 78%);
+  color: #fff;
+  font-size: 0.625rem;
+  line-height: 1.4;
+}
+
 .koc-initials {
   font-family: var(--font-heading);
   font-weight: 800;
@@ -1233,6 +1263,7 @@
   left: 8px;
   z-index: 2;
 }
+.koc-verified .badge--verified { background: #edf6ef; }
 
 .filter-panel {
   display: flex;

@@ -113,7 +113,7 @@ export function mobileNavMarkup() {
         <span>${esc(item.label)}</span>${icon('chevronDown')}
       </button>
       <div class="accordion-panel" id="mnav-${i}">
-        <a href="${esc(item.href)}" style="font-weight:600;color:var(--secondary)">${tr('Xem tổng quan', 'Overview')}</a>
+        <a href="${esc(item.href)}" style="font-weight:600">${tr('Xem tổng quan', 'Overview')}</a>
         ${(item.groups || [])
           .flatMap((g) => g.links)
           .map((l) => `<a href="${esc(l.href)}">${esc(l.label)}</a>`)
@@ -378,11 +378,24 @@ export function updateHeaderLive() {
 }
 
 export function markActiveNav(route) {
-  $$('[data-nav-link], .mega__link, .footer__col a').forEach((a) => {
+  const childLinks = $$('.mega__link, .mobile-nav .accordion-panel a, .mobile-nav__link')
+  $$('[data-nav-link], .mega__link, .mobile-nav .accordion-panel a, .mobile-nav__link, .footer__col a').forEach((a) => {
     a.removeAttribute('aria-current')
     a.classList.remove('is-active')
   })
-  const root = (route || '').split('/')[1] || ''
+  const normalize = (value) => (value || '').replace(/^#/, '').split(/[?#]/)[0].replace(/\/+$/, '') || '/'
+  const path = normalize(route)
+  const matches = childLinks.map((a) => {
+    const href = a.getAttribute('href') || ''
+    const target = normalize(href)
+    return { a, target, matches: href.startsWith('#/') && (path === target || (target !== '/' && path.startsWith(`${target}/`))) }
+  }).filter((item) => item.matches)
+  const bestLength = Math.max(0, ...matches.map((item) => item.target.length))
+  matches.filter((item) => item.target.length === bestLength).forEach(({ a, target }) => {
+    a.classList.add('is-active')
+    a.setAttribute('aria-current', path === target ? 'page' : 'location')
+  })
+  const root = path.split('/')[1] || ''
   const map = {
     '': 'home',
     'giai-phap': 'giai-phap',

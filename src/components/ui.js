@@ -11,6 +11,13 @@ import { PLATFORMS } from '../lib/catalog-site.js'
 import { tr } from '../lib/i18n.js'
 
 /* ---------- Media & placeholder ---------- */
+export function kocPortrait(k) {
+  const initials = k.name.split(' ').map((p) => p[0]).join('').slice(0, 2)
+  return `<span class="koc-initials" aria-hidden="true">${esc(initials)}</span>
+    ${k.avatarSrc ? `<img class="koc-portrait" src="${esc(k.avatarSrc)}" alt="${esc(tr(`Chân dung AI minh họa cho ${k.name}`, `AI-generated illustrative portrait of ${k.name}`))}" loading="lazy" decoding="async" onerror="this.remove()" />` : ''}
+    <span class="koc-ai-label">${tr('Ảnh AI minh họa', 'AI illustration')}</span>`
+}
+
 export function media({ src, alt = '', label = 'Ảnh thật đang cập nhật', ratio = '16x9', className = '', badge = '', dark = false, caption = '', imgClass = '' }) {
   return `<figure class="media media--${ratio} ${dark ? 'media--on-dark' : ''} ${className}">
     <div class="media__placeholder">${icon('camera')}<span>${esc(label)}</span></div>
