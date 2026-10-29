@@ -25,7 +25,7 @@ export const ORG = {
   hours: 'Thứ 2 – Thứ 7, 08:30 – 18:00',
   mapEmbed:
     'https://www.google.com/maps?q=232/14%20V%C3%B5%20Th%E1%BB%8B%20S%C3%A1u%2C%20Xu%C3%A2n%20H%C3%B2a%2C%20TP.HCM&output=embed',
-  kocvietAppUrl: 'https://kocviet.vn/dang-ky',
+  kocvietAppUrl: 'https://kocviet.com/#/dang-ky',
   fanpage: 'https://facebook.com/vhub.vn',
   youtube: 'https://youtube.com/@vhub',
   tiktok: 'https://tiktok.com/@vhub',

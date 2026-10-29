@@ -354,7 +354,7 @@ Một test từng “flip” trên cùng một mã nguồn. Nguyên nhân nằm 
 - `npm run build`: 44 file JS/ESM hợp lệ, 5 tài nguyên index.html tồn tại, sitemap 55 URL.
 - `check_backend()`: bundle Worker thành công, không lỗi import/route/CSDL.
 - `lint_frontend()`: mọi `fetch('/api/...')` có route, mọi `#id` được query đều tồn tại.
-- API test tự động: **21/21 đạt** trên lượt chạy gần nhất (health, bootstrap, lead hợp lệ/không hợp lệ, honeypot,
+- API test tự động: **21/21 đạt** trên lượt chạy gần nhất (heal`th, bootstrap, lead hợp lệ/không hợp lệ, honeypot,
   lịch trống, đặt lịch, chặn trùng lịch 409, admin 401/503, chat 503 khi thiếu key, CSV).
 - Kiểm thử giao diện tất định: 23 route × 3 vòng, kết quả giống nhau 3/3, 0 vấn đề (bảng đầy đủ ở mục 9.1).
   Các kiểm tra thủ công trước đó (form lead → trang cảm ơn, đặt lịch → mã đặt chỗ, VI/EN, menu mobile,
@@ -373,3 +373,7 @@ Một test từng “flip” trên cùng một mã nguồn. Nguyên nhân nằm 
 - Migration **chỉ thêm**, không sửa/xoá migration đã chạy. Phiên bản được đánh dấu trong bảng `_migrations`
   (adapter SQLite của nền tảng không cho phép `PRAGMA user_version`). Hiện có 9 migration.
 - Seed chỉ chạy khi bảng rỗng — không ghi đè dữ liệu vận hành thật.
+
+## 11. Câu lệnh merge code với nexrall
+
+- Sync V-HUB main tới commit <hash>, chỉ ghi file, KHÔNG deploy
