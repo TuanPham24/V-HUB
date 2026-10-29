@@ -65,7 +65,7 @@ function primaryNav() {
 }
 
 function brandMarkup() {
-  return '<img class="brand__logo" src="/images/brand/vhub-logo.png" alt="V-HUB — Value | Innovate | Trust" width="415" height="152" />'
+  return '<img class="brand__logo" src="/images/brand/vhub-logo-hd.png" alt="V-HUB — Value | Innovate | Trust" width="2072" height="759" />'
 }
 
 function languagePicker(id) {

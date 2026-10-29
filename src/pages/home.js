@@ -80,10 +80,9 @@ function reasonsSection() {
   return `<section class="section">
     <div class="container">
       <div class="trust-strip" aria-label="${tr('Đối tác và bảo chứng', 'Partners and endorsements')}">
-        <span class="logo-slot">${tr('Ô chờ logo VTV Nam Bộ', 'VTV Nam Bộ logo slot')}</span>
-        <span class="logo-slot">${tr('Ô chờ logo đối tác', 'Partner logo slot')}</span>
-        <span class="logo-slot">${tr('Ô chờ logo đối tác', 'Partner logo slot')}</span>
-        <span class="logo-slot">${tr('Ô chờ logo đối tác', 'Partner logo slot')}</span>
+        <span class="partner-logo"><img src="/images/brand/vtv-logo.png" alt="VTV" width="1222" height="504" loading="lazy" /></span>
+        <span class="partner-logo partner-logo--wide"><img src="/images/brand/netviettv-logo.png" alt="NetVietTV" loading="lazy" /></span>
+        <span class="partner-logo"><img src="/images/brand/hoa-binh-film-logo.png" alt="Hòa Bình Film" width="2048" height="2048" loading="lazy" /></span>
         <span class="small muted">${tr('Bảo chứng nhà đài · Nhà sáng tạo định danh · Hạ tầng chuẩn truyền hình', 'Broadcaster-backed · Verified creators · Broadcast-grade infrastructure')}</span>
       </div>
       ${sectionHead({
