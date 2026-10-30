@@ -420,6 +420,9 @@ p {
   --btn-bg: var(--primary-strong);
   --btn-fg: #fff;
   --btn-border: transparent;
+  --btn-hover-bg: var(--primary-deep);
+  --btn-hover-fg: #fff;
+  --btn-hover-border: transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -440,65 +443,51 @@ p {
   white-space: nowrap;
 }
 
-.btn:hover {
-  background: var(--primary);
+.btn:where(:hover, :focus-visible):not(:disabled):not([aria-disabled='true']) {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-fg);
+  border-color: var(--btn-hover-border);
 }
 
-.btn:active {
+.btn:active:not(:disabled):not([aria-disabled='true']) {
   transform: translateY(1px);
 }
 
 .btn--hero {
-  background: var(--primary);
+  --btn-bg: var(--primary-strong);
   font-size: 1.0625rem;
   min-height: 56px;
   padding-inline: 30px;
   box-shadow: var(--shadow-md);
 }
 
-.btn--hero:hover {
-  background: var(--primary-strong);
-}
-
 .btn--ghost {
   --btn-bg: transparent;
   --btn-fg: var(--on-surface);
   --btn-border: var(--outline-strong);
-}
-
-.btn--ghost:hover {
-  --btn-bg: var(--surface-alt);
-  border-color: var(--secondary);
+  --btn-hover-bg: var(--primary-container);
+  --btn-hover-fg: var(--primary-deep);
+  --btn-hover-border: var(--primary-deep);
 }
 
 .btn--navy {
   --btn-bg: var(--secondary);
   --btn-fg: #fff;
-}
-
-.btn--navy:hover {
-  --btn-bg: var(--secondary-strong);
+  --btn-hover-bg: var(--secondary-strong);
 }
 
 .btn--on-dark {
-  --btn-bg: var(--primary);
+  --btn-bg: var(--primary-strong);
   --btn-fg: #fff;
-}
-
-.btn--on-dark:hover {
-  --btn-bg: var(--primary-on-dark);
-  --btn-fg: var(--secondary);
 }
 
 .btn--outline-light {
   --btn-bg: transparent;
   --btn-fg: #fff;
   --btn-border: rgba(255, 255, 255, 0.55);
-}
-
-.btn--outline-light:hover {
-  --btn-bg: rgba(255, 255, 255, 0.12);
-  border-color: #fff;
+  --btn-hover-bg: var(--primary-container);
+  --btn-hover-fg: var(--primary-deep);
+  --btn-hover-border: var(--primary-deep);
 }
 
 .btn--link {
@@ -510,20 +499,15 @@ p {
   border-radius: 6px;
 }
 
-.btn--link:hover {
-  --btn-bg: transparent;
-  color: var(--primary-strong);
-}
-
 .section--navy .btn--link {
-  color: var(--primary-on-dark);
+  --btn-fg: var(--primary-on-dark);
 }
 
 .btn--link .btn__arrow {
   transition: transform var(--dur-fast) var(--ease);
 }
 
-.btn--link:hover .btn__arrow {
+.btn--link:where(:hover, :focus-visible):not(:disabled):not([aria-disabled='true']) .btn__arrow {
   transform: translateX(4px);
 }
 

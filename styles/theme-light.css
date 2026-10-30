@@ -75,21 +75,9 @@
   --btn-fg: #fff;
 }
 
-.btn--on-dark:hover {
-  --btn-fg: #fff;
-  --btn-bg: var(--primary-deep);
-  background: var(--btn-bg);
-}
-
 .btn--outline-light {
   --btn-fg: var(--on-surface);
   --btn-border: var(--outline-strong);
-}
-
-.btn--outline-light:hover {
-  --btn-bg: var(--primary-container);
-  background: var(--btn-bg);
-  border-color: var(--primary-deep);
 }
 
 .stats-updated,

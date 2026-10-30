@@ -12,7 +12,7 @@
 .site-header--commerce .nav-link { font-family: var(--font-body); font-size: 14px; font-weight: 500; padding-inline: 5px; }
 .site-header--commerce .nav-link.is-active { color: var(--secondary); font-weight: 700; }
 .site-header--commerce .nav-link.is-active::after { left: 5px; right: 5px; bottom: 0; background: #d65330; height: 2px; }
-.site-header--commerce .header__cta { background: #d65330; border-radius: 11px; padding-inline: 23px; }
+.site-header--commerce .header__cta { --btn-bg: var(--primary-strong); border-radius: 11px; padding-inline: 23px; }
 .language-picker { position: relative; flex: none; color: var(--secondary); }
 .language-picker summary { display: flex; align-items: center; gap: 9px; min-height: 44px; padding: 4px; cursor: pointer; list-style: none; font-size: 14px; font-weight: 500; }
 .language-picker summary::-webkit-details-marker { display: none; }
@@ -51,9 +51,15 @@
 .commerce-hero h1 em { display: block; color: #d65330; font-style: normal; }
 .commerce-hero__copy > p { max-width: 620px; font-size: clamp(16px,1.4vw,21px); line-height: 1.6; color: #687080; margin-top: 18px; }
 .commerce-hero__actions { display: flex; gap: 16px; margin-top: 27px; flex-wrap: wrap; }
-.commerce-button { background: #d65330; border-radius: 11px; min-height: 52px; font-family: var(--font-body); padding: 14px 28px; }
-.commerce-button--outline { background: transparent; border-color: var(--secondary); color: var(--secondary); }
-.commerce-button--outline:hover { background: #fff; }
+.commerce-button { border-radius: 11px; min-height: 52px; font-family: var(--font-body); padding: 14px 28px; }
+.commerce-button--outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--secondary);
+  --btn-border: var(--secondary);
+  --btn-hover-bg: var(--primary-container);
+  --btn-hover-fg: var(--primary-deep);
+  --btn-hover-border: var(--primary-deep);
+}
 .commerce-hero__facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 34px; max-width: 620px; }
 .commerce-hero__facts > div { padding-inline: 22px; border-left: 1px solid #d6d8df; display: flex; flex-direction: column; gap: 3px; }
 .commerce-hero__facts > div:first-child { padding-left: 0; border: 0; }
