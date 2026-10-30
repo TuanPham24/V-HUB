@@ -22,8 +22,10 @@ export function viewer360Markup({ studio, label, height = '16x10' }) {
   }
   return `<div class="viewer-360">
     <div class="viewer-360__stage">
-      ${media({ label: label || tr('Ảnh toàn cảnh 360°: studio V-HUB', '360° panorama: V-HUB studio'), ratio: height })}
-      <span class="viewer-360__hint">${tr('Chưa có file toàn cảnh — đang hiển thị ảnh tĩnh', 'No panorama file yet — showing a still image')}</span>
+      ${media({ src: studio?.images[0]?.src, pending: studio?.images[0]?.pending, alt: studio?.images[0]?.alt, caption: studio?.images[0]?.caption, label: (studio?.images[0]?.pending ? studio.images[0].label : label) || tr('Ảnh studio V-HUB', 'V-HUB studio image'), ratio: height })}
+      <span class="viewer-360__hint">${studio?.images[0]?.src
+        ? tr('Chưa có file toàn cảnh — đang hiển thị ảnh tĩnh', 'No panorama file yet — showing a still image')
+        : tr('Ảnh studio và ảnh toàn cảnh 360° đang chờ bổ sung', 'Studio image and 360° panorama pending')}</span>
     </div>
   </div>`
 }

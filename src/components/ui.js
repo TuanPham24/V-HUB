@@ -18,8 +18,8 @@ export function kocPortrait(k) {
     <span class="koc-ai-label">${tr('Ảnh AI minh họa', 'AI illustration')}</span>`
 }
 
-export function media({ src, alt = '', label = 'Ảnh thật đang cập nhật', ratio = '16x9', className = '', badge = '', dark = false, caption = '', imgClass = '' }) {
-  return `<figure class="media media--${ratio} ${dark ? 'media--on-dark' : ''} ${className}">
+export function media({ src, alt = '', label = 'Ảnh thật đang cập nhật', ratio = '16x9', className = '', badge = '', dark = false, caption = '', imgClass = '', pending = false }) {
+  return `<figure class="media media--${ratio} ${dark ? 'media--on-dark' : ''} ${className}"${pending && !src ? ` data-image-pending="${esc(label)}"` : ''}>
     <div class="media__placeholder">${icon('camera')}<span>${esc(label)}</span></div>
     ${src ? `<img class="media__img ${imgClass}" src="${esc(src)}" alt="${esc(alt || label)}" loading="lazy" decoding="async" onerror="this.remove()" />` : ''}
     ${badge ? `<div class="media__badge">${badge}</div>` : ''}
@@ -320,7 +320,7 @@ export function liveCard(session) {
            <button class="btn btn--ghost btn--sm" type="button" data-remind="${esc(session.id)}">${icon('bell', 'btn__icon')}<span>${tr('Lưu lịch', 'Save')}</span></button>`
         : `<a class="btn btn--ghost btn--sm" href="${esc(session.url || '#/lich-live')}" ${session.url ? 'target="_blank" rel="noopener"' : ''}>${icon('rotate', 'btn__icon')}<span>${tr('Xem lại', 'Replay')}</span></a>`
   return `<article class="live-card">
-    ${media({ label: `Ảnh thật: phiên live "${session.title}"`, ratio: '16x9', badge })}
+    ${media({ src: session.imageSrc || session.image_src, pending: !(session.imageSrc || session.image_src), label: tr(`Đang chờ ảnh phiên live: ${session.title}`, `Live session image pending: ${session.title}`), ratio: '16x9', badge })}
     <div class="live-card__body">
       <div class="row" style="gap:8px;justify-content:space-between">
         <span class="live-card__time">${state === 'live' ? tr('ĐANG PHÁT', 'ON AIR') : formatTime(session.starts_at)}</span>

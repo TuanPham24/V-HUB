@@ -5,7 +5,7 @@
 
 /** @typedef {{id:string, name:string, priceLabel:string, priceNote?:string, suitableFor:string, frequency:string, team:string, report:string, commitment:string, highlight?:boolean, includes:string[]}} ServicePackage */
 /** @typedef {{title:string, body:string}} TextBlock */
-/** @typedef {{slug:string, group:'nhan-hang'|'sme'|'dia-phuong', title:string, kicker:string, summary:string, priceLabel:string, bullets:string[], deliverables:TextBlock[], metrics?:{label:string, value:string}[], faq?:TextBlock[]}} Solution */
+/** @typedef {{slug:string, imageSrc:string|null, imagePending?:boolean, imageLabel?:string, group:'nhan-hang'|'sme'|'dia-phuong', title:string, kicker:string, summary:string, priceLabel:string, bullets:string[], deliverables:TextBlock[], metrics?:{label:string, value:string}[], faq?:TextBlock[]}} Solution */
 
 /** @type {ServicePackage[]} */
 export const PACKAGES = [
@@ -72,6 +72,7 @@ export const PACKAGES = [
 export const SOLUTIONS = [
   {
     slug: 'brand-live-house',
+    imageSrc: '/images/studio/studio-tieu-chuan.jpg',
     group: 'nhan-hang',
     title: 'Brand Live House',
     kicker: 'Nhãn hàng & tập đoàn',
@@ -95,6 +96,9 @@ export const SOLUTIONS = [
   },
   {
     slug: 'van-hanh-tmdt-da-tuyen',
+    imageSrc: null,
+    imagePending: true,
+    imageLabel: 'Đang chờ ảnh: đội vận hành gian hàng, đơn hàng và dữ liệu TMĐT đa nền tảng',
     group: 'nhan-hang',
     title: 'Vận hành TMĐT đa tuyến',
     kicker: 'Nhãn hàng & tập đoàn',
@@ -114,6 +118,7 @@ export const SOLUTIONS = [
   },
   {
     slug: 'thuong-hieu-ip-vtv',
+    imageSrc: '/images/team/doi-san-xuat.jpg',
     group: 'nhan-hang',
     title: 'Thương hiệu & IP gắn VTV',
     kicker: 'Nhãn hàng & tập đoàn',
@@ -129,6 +134,9 @@ export const SOLUTIONS = [
   },
   {
     slug: 'video-ai-tvc-ai',
+    imageSrc: null,
+    imagePending: true,
+    imageLabel: 'Đang chờ ảnh: quy trình sản xuất Video AI / TVC AI tại máy trạm',
     group: 'nhan-hang',
     title: 'Video AI / TVC AI',
     kicker: 'Nhãn hàng & tập đoàn',
@@ -148,6 +156,7 @@ export const SOLUTIONS = [
   },
   {
     slug: 'booking-creator',
+    imageSrc: '/images/team/doi-booking-koc.jpg',
     group: 'nhan-hang',
     title: 'Booking Creator',
     kicker: 'Nhãn hàng & tập đoàn',
@@ -162,6 +171,9 @@ export const SOLUTIONS = [
   },
   {
     slug: 'khoi-dong-tmdt',
+    imageSrc: null,
+    imagePending: true,
+    imageLabel: 'Đang chờ ảnh: đội ngũ thiết lập gian hàng TMĐT cho doanh nghiệp mới',
     group: 'sme',
     title: 'Khởi động TMĐT',
     kicker: 'Doanh nghiệp vừa và nhỏ',
@@ -177,6 +189,7 @@ export const SOLUTIONS = [
   },
   {
     slug: 'dao-tao-doi-ngu',
+    imageSrc: '/images/team/doi-dao-tao.jpg',
     group: 'sme',
     title: 'Đào tạo đội ngũ bán hàng số',
     kicker: 'Doanh nghiệp vừa và nhỏ',
@@ -191,6 +204,7 @@ export const SOLUTIONS = [
   },
   {
     slug: 'cho-phien-dia-phuong',
+    imageSrc: '/images/cho-phien/vinh-long.jpg',
     group: 'dia-phuong',
     title: 'Gói địa phương — Chợ Phiên Phương Nam',
     kicker: 'Địa phương & OCOP',
@@ -210,6 +224,7 @@ export const SOLUTIONS = [
   },
   {
     slug: 'mega-xuc-tien',
+    imageSrc: '/images/studio/studio-megalive.jpg',
     group: 'dia-phuong',
     title: 'Megalive xúc tiến thương mại',
     kicker: 'Địa phương & OCOP',

@@ -13,7 +13,7 @@ import { viewer360Markup, attach360 } from '../components/studio360.js'
 
 function studioCard(s) {
   return `<article class="card card--link" style="padding:10px;gap:12px">
-    ${media({ src: s.images[0]?.src, label: s.images[0]?.label || `Ảnh thật: ${s.name}`, ratio: '4x3', badge: `<span class="badge">${esc(s.typeLabel)}</span>` })}
+    ${media({ src: s.images[0]?.src, pending: s.images[0]?.pending, label: s.images[0]?.label || `Ảnh thật: ${s.name}`, caption: s.images[0]?.caption, ratio: '4x3', badge: `<span class="badge">${esc(s.typeLabel)}</span>` })}
     <div class="stack stack--sm" style="padding:4px">
       <h3 class="card__title">${esc(s.name)}</h3>
       <div class="row" style="gap:8px 14px">
@@ -47,7 +47,7 @@ function listPage() {
             <a class="btn btn--outline-light" href="#tham-quan-360">${tr('Tham quan 360°', '360° tour')}</a>
           </div>
         </div>
-        ${viewer360Markup({ label: tr('Ảnh toàn cảnh 360°: Super-Megalive Studio', '360° panorama: Super-Megalive Studio') })}
+        ${viewer360Markup({ studio: STUDIOS[0], label: tr('Studio Megalive V-HUB', 'V-HUB Megalive studio') })}
       </div>
     </div>
   </div>
@@ -77,7 +77,7 @@ function listPage() {
     <section class="section section--alt" id="tham-quan-360">
       <div class="container">
         <div class="split split--7-5">
-          <div>${viewer360Markup({ label: tr('Ảnh toàn cảnh 360°: Super-Megalive Studio', '360° panorama: Super-Megalive Studio') })}</div>
+          <div>${viewer360Markup({ studio: STUDIOS[0], label: tr('Studio Megalive V-HUB', 'V-HUB Megalive studio') })}</div>
           <div class="stack">
             <span class="kicker">${tr('Tham quan', 'Tour')}</span>
             <h2>${tr('Xem trường quay trước khi đặt lịch', 'See the studio before you book')}</h2>
@@ -149,7 +149,7 @@ function detailPage(s) {
             <span class="badge" style="min-height:44px;padding-inline:14px">${esc(s.priceLabel)}</span>
           </div>
         </div>
-        ${media({ src: s.images[0]?.src, label: s.images[0]?.label || `Ảnh thật: ${s.name}`, ratio: '4x3' })}
+        ${media({ src: s.images[0]?.src, pending: s.images[0]?.pending, label: s.images[0]?.label || `Ảnh thật: ${s.name}`, caption: s.images[0]?.caption, ratio: '4x3' })}
       </div>
     </div>
   </div>
@@ -158,12 +158,12 @@ function detailPage(s) {
       <div class="container">
         <div class="split split--7-5">
           <div class="stack">
-            <div id="gallery-main">${media({ src: s.images[0]?.src, label: s.images[0]?.label || `Ảnh thật: ${s.name}`, ratio: '4x3' })}</div>
+            <div id="gallery-main">${media({ src: s.images[0]?.src, pending: s.images[0]?.pending, label: s.images[0]?.label || `Ảnh thật: ${s.name}`, caption: s.images[0]?.caption, ratio: '4x3' })}</div>
             <div class="thumb-row" style="grid-template-columns:repeat(2,1fr);margin-top:0">
               ${s.images
                 .map(
-                  (img, i) => `<button type="button" class="${i === 0 ? 'is-active' : ''}" data-gallery="${esc(img.src || '')}" data-gallery-label="${esc(img.label)}" aria-label="${esc(img.label)}">
-                    ${media({ src: img.src, label: img.label, ratio: '4x3' })}
+                  (img, i) => `<button type="button" class="${i === 0 ? 'is-active' : ''}" data-gallery="${esc(img.src || '')}" data-gallery-label="${esc(img.label)}" data-gallery-caption="${esc(img.caption || '')}" data-gallery-pending="${Boolean(img.pending)}" aria-label="${esc(img.label)}">
+                    ${media({ src: img.src, pending: img.pending, label: img.label, caption: img.caption, ratio: '4x3' })}
                   </button>`,
                 )
                 .join('')}
@@ -514,7 +514,7 @@ function bookingMixin(root, studio) {
       if (main) {
         const src = gallery.getAttribute('data-gallery') || ''
         const label = gallery.getAttribute('data-gallery-label') || 'Ảnh thật studio'
-        main.innerHTML = `<figure class="media media--4x3"><div class="media__placeholder">${icon('camera')}<span>${esc(label)}</span></div>${src ? `<img class="media__img" src="${esc(src)}" alt="${esc(label)}" onerror="this.remove()" />` : ''}</figure>`
+        main.innerHTML = media({ src, label, pending: gallery.getAttribute('data-gallery-pending') === 'true', caption: gallery.getAttribute('data-gallery-caption') || '', ratio: '4x3' })
       }
     }
   })

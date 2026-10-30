@@ -64,7 +64,7 @@ function hubPage() {
             <button class="tab" type="button" role="tab" aria-selected="false" data-koc-tab="creator">${tr('Tôi là nhà sáng tạo', 'I am a creator')}</button>
           </div>
         </div>
-        ${media({ label: tr('Ảnh thật: buổi định danh KOC tại V-HUB', 'Real photo: creator verification day at V-HUB'), ratio: '4x3', badge: badgeDemo() })}
+        ${media({ src: '/images/koc/xac-minh-ho-so.jpg', label: tr('Buổi định danh KOC tại V-HUB', 'Creator verification day at V-HUB'), ratio: '4x3', badge: badgeDemo() })}
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@ function hubPage() {
         <div class="grid grid--2">
           ${AMBASSADORS.map(
             (a) => `<article class="card" style="padding:10px">
-              ${media({ src: a.imageSrc, label: `Ảnh thật: ${a.name} — ${a.role}`, ratio: '16x9', badge: badgeDemo() })}
+              ${media({ src: a.imageSrc, label: tr(`Chân dung AI minh họa: ${a.name}`, `AI portrait: ${a.name}`), ratio: '4x5', badge: `<span class="badge badge--demo">${tr('Ảnh AI minh họa', 'AI illustration')}</span>` })}
               <div style="padding:6px"><h3 class="card__title">${esc(a.name)}</h3><p class="small muted">${esc(a.role)} · ${esc(a.note)}</p></div>
             </article>`,
           ).join('')}
@@ -317,7 +317,7 @@ function verifyPage() {
           </div>
           <p class="xsmall" style="color:var(--on-secondary-muted)">${tr('Nút đăng ký dẫn sang ứng dụng KOCViet (URL cấu hình trong src/lib/catalog-site.js).', 'The register button opens the KOCViet app (URL configured in src/lib/catalog-site.js).')}</p>
         </div>
-        ${media({ label: tr('Ảnh thật: buổi xác minh hồ sơ KOC', 'Real photo: creator verification'), ratio: '4x3', dark: true })}
+        ${media({ src: '/images/koc/xac-minh-ho-so.jpg', label: tr('Buổi xác minh hồ sơ KOC', 'Creator verification'), ratio: '4x3', dark: true })}
       </div>
     </div>
   </div>
@@ -388,7 +388,7 @@ function ambassadorPage() {
         <div class="grid grid--2">
           ${AMBASSADORS.map(
             (a) => `<article class="card" style="padding:10px">
-              ${media({ src: a.imageSrc, label: `Ảnh thật: chân dung đại sứ ${a.name}`, ratio: '4x3', badge: badgeDemo() })}
+              ${media({ src: a.imageSrc, label: tr(`Chân dung AI minh họa: ${a.name}`, `AI portrait: ${a.name}`), ratio: '4x5', badge: `<span class="badge badge--demo">${tr('Ảnh AI minh họa', 'AI illustration')}</span>` })}
               <div style="padding:8px" class="stack stack--sm">
                 <h2 style="font-size:1.25rem">${esc(a.name)}</h2>
                 <p class="small muted">${esc(a.role)} · ${tr('từ', 'since')} ${esc(a.since)}</p>
@@ -432,7 +432,7 @@ function affiliatePage() {
           <p class="lede">${tr('Nhận link affiliate theo nhóm hàng, hoa hồng công bố trước phiên và đối soát sau phiên. Không phí ẩn, không chậm thanh toán.', 'Get affiliate links by category with commissions published before the session and reconciled afterwards.')}</p>
           <div class="row" style="gap:10px"><a class="btn" href="${esc(ORG.kocvietAppUrl)}" target="_blank" rel="noopener">${tr('Nhận link trên KOCViet', 'Get links on KOCViet')}${icon('external', 'btn__icon')}</a><a class="btn btn--ghost" href="#/kocviet/tim-kiem">${tr('Xem nhà sáng tạo', 'Browse creators')}</a></div>
         </div>
-        ${media({ label: tr('Ảnh thật: kho nội dung affiliate tại V-HUB', 'Real photo: affiliate content library at V-HUB'), ratio: '4x3' })}
+        ${media({ pending: true, label: tr('Đang chờ ảnh: kho nội dung affiliate tại V-HUB', 'Image pending: V-HUB affiliate content library'), ratio: '4x3' })}
       </div>
     </div>
   </div>

@@ -144,8 +144,7 @@ export const NAV = [
       {
         title: 'Cho doanh nghiệp',
         links: [
-          { id: 'koc-search', label: 'Tìm nhà sáng tạo', href: '#/kocviet/tim-kiem' },
-          { id: 'koc-booking', label: 'Booking & ký quỹ', href: '#/kocviet/tim-kiem' },
+          { id: 'koc-search', label: 'Tìm & booking nhà sáng tạo', href: '#/kocviet/tim-kiem' },
         ],
       },
       {

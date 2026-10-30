@@ -37,7 +37,7 @@ function listPage() {
           <p class="lede">${tr('Bốn khoá do VTV Nam Bộ chủ trì, học trực tiếp tại V-HUB. Lộ trình rõ: Video AI → TVC AI hoặc Phim AI; Livestream học song song.', 'Four courses chaired by VTV Nam Bộ, taught on site at V-HUB. A clear path: Video AI → TVC AI or Film AI, with Livestream in parallel.')}</p>
           <div class="row" style="gap:10px"><a class="btn btn--on-dark" href="#khoa-hoc">${tr('Xem khoá học', 'View courses')}${icon('arrowRight', 'btn__icon')}</a><a class="btn btn--outline-light" href="#tu-van-hoc">${tr('Đăng ký tư vấn', 'Request advice')}</a></div>
         </div>
-        ${media({ label: tr('Ảnh thật: lớp học tại trường quay V-HUB', 'Real photo: class at V-HUB studio'), ratio: '4x3', dark: true })}
+        ${media({ src: '/images/team/doi-dao-tao.jpg', label: tr('Đào tạo tại trường quay V-HUB', 'Training at V-HUB studio'), ratio: '4x3', dark: true })}
       </div>
     </div>
   </div>
@@ -96,7 +96,7 @@ function detailPage(c) {
           <div class="row" style="gap:8px"><span class="badge badge--primary">${esc(c.duration)}</span><span class="badge">${c.hours} ${tr('giờ', 'hours')}</span><span class="badge">${esc(c.feeLabel)}</span></div>
           <div class="row" style="gap:10px"><a class="btn" href="#dang-ky">${tr('Đăng ký tư vấn', 'Request advice')}${icon('arrowRight', 'btn__icon')}</a><a class="btn btn--ghost" href="#/hoc-vien">${tr('Tất cả khoá học', 'All courses')}</a></div>
         </div>
-        ${media({ label: `Ảnh thật: lớp ${c.title} tại V-HUB`, ratio: '4x3' })}
+        ${media({ src: '/images/team/doi-dao-tao.jpg', label: tr('Đội đào tạo V-HUB hướng dẫn thực hành', 'V-HUB training team guiding practice'), ratio: '4x3' })}
       </div>
     </div>
   </div>
@@ -148,8 +148,8 @@ function detailPage(c) {
     </section>
     <section class="section section--alt">
       <div class="container">
-        ${sectionHead({ kicker: tr('Showcase', 'Showcase'), title: tr('Sản phẩm học viên', 'Student work'), sub: tr('Sản phẩm cuối khoá được trình chiếu tại V-HUB và đăng trên kênh của học viên.', 'Final projects are screened at V-HUB and published on student channels.'), action: badgeDemo(tr('Đang chờ tư liệu thật', 'Real assets pending')) })}
-        <div class="grid grid--3">${[1, 2, 3].map((i) => media({ label: `Ảnh/video thật: sản phẩm học viên ${i}`, ratio: '16x9' })).join('')}</div>
+        ${sectionHead({ kicker: tr('Showcase', 'Showcase'), title: tr('Sản phẩm học viên', 'Student work'), sub: tr('Ảnh hoặc video sản phẩm cuối khoá đang chờ bổ sung.', 'Images or videos of final student projects are pending.') })}
+        <div class="grid grid--3">${[1, 2, 3].map((i) => media({ pending: true, label: tr(`Đang chờ ảnh/video sản phẩm học viên ${i} — ${c.title}`, `Student project image/video pending ${i} — ${c.title}`), ratio: '16x9' })).join('')}</div>
       </div>
     </section>
     <section class="section" id="dang-ky">

@@ -23,8 +23,9 @@ export const CASES = [
       { label: 'Phiên live mỗi tháng', value: '22 phiên', demo: true },
     ],
     quote: { text: 'Điều chúng tôi cần không phải thêm một phiên live, mà là một lịch vận hành ổn định và người chịu trách nhiệm.', author: 'Đại diện Nhà Mây', role: 'Giám đốc thương mại (nhân vật minh hoạ)' },
-    imageSrc: '/images/cases/nha-may.jpg',
-    imageLabel: 'Ảnh thật: phiên live thời trang tại Studio V-HUB',
+    imageSrc: null,
+    imagePending: true,
+    imageLabel: 'Đang chờ ảnh: phiên live thời trang Nhà Mây tại studio V-HUB',
   },
   {
     slug: 'bep-co-tu',
@@ -46,8 +47,9 @@ export const CASES = [
       { label: 'Video nội dung dùng lại', value: '18 video', demo: true },
     ],
     quote: { text: 'Khán giả tin mình khi họ thấy món ăn được nấu thật, trong một căn bếp thật.', author: 'Đại diện Bếp Cô Tư', role: 'Nhà sáng lập (nhân vật minh hoạ)' },
-    imageSrc: '/images/cases/bep-co-tu.jpg',
-    imageLabel: 'Ảnh thật: bếp demo tại Studio Tiêu chuẩn 03',
+    imageSrc: null,
+    imagePending: true,
+    imageLabel: 'Đang chờ ảnh: bếp demo và phiên nấu ăn Bếp Cô Tư tại studio',
   },
   {
     slug: 'dua-xanh-ben-tre',
@@ -69,8 +71,8 @@ export const CASES = [
       { label: 'Trích quỹ thiện nguyện', value: '10% doanh thu', demo: false },
     ],
     quote: { text: 'Đặc sản của quê hương, trở về với quê hương — chúng tôi hiểu câu đó khi nhận lại phần quỹ trao cho địa phương.', author: 'Đại diện hợp tác xã Dừa Xanh', role: 'Giám đốc hợp tác xã (nhân vật minh hoạ)' },
-    imageSrc: '/images/cases/dua-xanh.jpg',
-    imageLabel: 'Ảnh thật: phiên Chợ Phiên tại tỉnh Bến Tre',
+    imageSrc: '/images/cho-phien/ben-tre.jpg',
+    imageLabel: 'Ảnh minh họa: vùng trồng dừa Bến Tre',
   },
 ]
 
@@ -82,7 +84,7 @@ export const NEWS = [
     date: '2026-10-18',
     readingTime: '6 phút đọc',
     excerpt: 'Định danh không phải thủ tục hành chính. Đó là cách bảo vệ nhãn hàng, người xem và chính nhà sáng tạo trước những rủi ro không lường trước.',
-    imageSrc: '/images/news/dinh-danh.jpg',
+    imageSrc: '/images/koc/xac-minh-ho-so.jpg',
     imageLabel: 'Ảnh thật: buổi định danh KOC tại V-HUB',
     body: [
       { heading: 'Rủi ro không đến từ nội dung xấu', paragraphs: ['Phần lớn khủng hoảng truyền thông trong livestream bán hàng không bắt đầu từ sản phẩm, mà từ một câu nói sai ngữ cảnh hoặc một cam kết không có căn cứ. Khi người phát ngôn chưa được xác minh, nhãn hàng không có cách nào đánh giá trước rủi ro đó.'] },
@@ -97,7 +99,7 @@ export const NEWS = [
     date: '2026-10-10',
     readingTime: '5 phút đọc',
     excerpt: 'Daily Live giữ nhịp, Megalive tạo cú nổ. Dùng sai nhịp là lý do nhiều thương hiệu đốt ngân sách mà doanh thu không đều.',
-    imageSrc: '/images/news/daily-megalive.jpg',
+    imageSrc: '/images/studio/studio-megalive.jpg',
     imageLabel: 'Ảnh thật: sân khấu Megalive tại V-HUB',
     body: [
       { heading: 'Daily Live là động cơ, không phải chiến dịch', paragraphs: ['Mục tiêu của Daily Live là giữ nhịp tương tác với tệp khách đã có, thử nghiệm combo và thu dữ liệu hành vi. Một phiên Daily Live tốt không cần quá đông người xem, nhưng cần tỷ lệ chốt đơn ổn định.'] },
@@ -112,8 +114,8 @@ export const NEWS = [
     date: '2026-09-28',
     readingTime: '7 phút đọc',
     excerpt: 'Nhiều địa phương mua thiết bị tốt nhưng không có người vận hành. Bài học từ các phiên Chợ Phiên đầu tiên.',
-    imageSrc: '/images/news/ocop.jpg',
-    imageLabel: 'Ảnh thật: phiên Chợ Phiên tại tỉnh',
+    imageSrc: '/images/team/doi-dao-tao.jpg',
+    imageLabel: 'Đội đào tạo V-HUB hướng dẫn người bán hàng số',
     body: [
       { heading: 'Thiết bị không tạo ra đơn hàng', paragraphs: ['Một bộ thiết bị livestream tốt chỉ có giá trị khi có người biết kể câu chuyện sản phẩm, xử lý tình huống và đọc số liệu sau phiên. Vì vậy V-HUB đặt đào tạo tại chỗ làm bước đầu tiên trong mỗi mùa Chợ Phiên.'] },
       { heading: 'Chuẩn hoá hồ sơ sản phẩm', paragraphs: ['Trước mỗi phiên, hồ sơ sản phẩm được rà soát: nhãn mác, hạn dùng, chứng nhận, hình ảnh, mô tả và chính sách đổi trả. Đây là phần mất thời gian nhất nhưng quyết định tỷ lệ hoàn hàng.'] },
@@ -127,7 +129,7 @@ export const NEWS = [
     date: '2026-09-15',
     readingTime: '4 phút đọc',
     excerpt: 'Từ duyệt kịch bản đến quy trình cắt sóng 60 giây — những lớp kiểm soát V-HUB áp dụng cho mọi phiên của nhãn hàng.',
-    imageSrc: '/images/news/an-toan.jpg',
+    imageSrc: '/images/operations/phong-dieu-khien.jpg',
     imageLabel: 'Ảnh thật: phòng điều khiển tại V-HUB',
     body: [
       { heading: 'Kiểm soát bắt đầu từ hợp đồng', paragraphs: ['Danh mục sản phẩm, ngôn từ được phép và trách nhiệm hai bên được ghi rõ trước khi lên lịch. Đây là lớp bảo vệ đầu tiên và cũng là lớp ít tốn kém nhất.'] },

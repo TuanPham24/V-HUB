@@ -30,7 +30,7 @@ export function renderCases(ctx) {
       <main id="main"><section class="section"><div class="container"><div class="grid grid--3">
         ${CASES.map(
           (c) => `<article class="case-card">
-            ${media({ src: c.imageSrc, label: c.imageLabel, ratio: '16x9', badge: badgeDemo() })}
+            ${media({ src: c.imageSrc, pending: c.imagePending, label: c.imageLabel, ratio: '16x9', badge: badgeDemo() })}
             <div class="case-card__body">
               <span class="xsmall muted">${esc(c.industry)} · ${esc(c.client)}</span>
               <h2 style="font-size:1.125rem">${esc(c.title)}</h2>
@@ -59,7 +59,7 @@ export function renderCases(ctx) {
             <p class="lede">${esc(c.summary)}</p>
             <div class="row" style="gap:8px"><span class="badge badge--primary">${esc(c.client)}</span><span class="badge">${esc(c.clientNote)}</span>${badgeDemo()}</div>
           </div>
-          ${media({ src: c.imageSrc, label: c.imageLabel, ratio: '4x3' })}
+          ${media({ src: c.imageSrc, pending: c.imagePending, label: c.imageLabel, ratio: '4x3' })}
         </div>
       </div>
     </div>
@@ -80,7 +80,7 @@ export function renderCases(ctx) {
               <h2 style="margin-top:12px">${tr('Cách V-HUB triển khai', 'Our approach')}</h2>
               <ul class="plan__list">${c.approach.map((a) => `<li>${icon('check')}<span>${esc(a)}</span></li>`).join('')}</ul>
               <h2 style="margin-top:12px">${tr('Video highlight', 'Highlight video')}</h2>
-              ${media({ label: tr('Video thật: highlight chiến dịch (đang chờ tư liệu)', 'Real video: campaign highlight (assets pending)'), ratio: '16x9' })}
+              ${media({ pending: true, label: tr(`Đang chờ video highlight chiến dịch ${c.client}`, `Campaign highlight video pending: ${c.client}`), ratio: '16x9' })}
             </div>
             <div class="stack">
               <div class="card card--accent">
@@ -99,7 +99,7 @@ export function renderCases(ctx) {
       </section>
       <section class="section section--alt">
         <div class="container">${sectionHead({ kicker: tr('Liên quan', 'Related'), title: tr('Dự án khác', 'Other cases') })}<div class="grid grid--2">${related
-          .map((x) => `<article class="card card--link" style="padding:10px">${media({ src: x.imageSrc, label: x.imageLabel, ratio: '16x9' })}<div style="padding:6px"><h3 class="card__title">${esc(x.title)}</h3><p class="card__body">${esc(x.summary)}</p>${linkArrow(tr('Đọc case', 'Read case'), `#/du-an/${x.slug}`)}</div></article>`)
+          .map((x) => `<article class="card card--link" style="padding:10px">${media({ src: x.imageSrc, pending: x.imagePending, label: x.imageLabel, ratio: '16x9' })}<div style="padding:6px"><h3 class="card__title">${esc(x.title)}</h3><p class="card__body">${esc(x.summary)}</p>${linkArrow(tr('Đọc case', 'Read case'), `#/du-an/${x.slug}`)}</div></article>`)
           .join('')}</div></div>
       </section>
     </main>`,
@@ -201,7 +201,7 @@ export function renderAbout() {
             <p class="lede">${tr('V-HUB là hệ thống MCN thương mại điện tử chính danh thuộc hệ sinh thái VTV Nam Bộ. Chúng tôi làm một việc: đưa hàng Việt lên sóng một cách chuyên nghiệp và có trách nhiệm.', 'V-HUB is an e-commerce MCN within the VTV Nam Bộ ecosystem. We do one thing: put Vietnamese goods on air professionally and responsibly.')}</p>
             <div class="row" style="gap:10px"><a class="btn btn--on-dark" href="#/lien-he">${tr('Liên hệ V-HUB', 'Contact us')}</a><a class="btn btn--outline-light" href="#/studio">${tr('Tham quan studio', 'Visit the studio')}</a></div>
           </div>
-          ${media({ label: tr('Ảnh thật: toà nhà 232/14 Võ Thị Sáu, TP.HCM', 'Real photo: 232/14 Vo Thi Sau, HCMC'), ratio: '4x3', dark: true })}
+          ${media({ pending: true, label: tr('Đang chờ ảnh: mặt ngoài toà nhà V-HUB — 232/14 Võ Thị Sáu, TP.HCM', 'Image pending: V-HUB building exterior at 232/14 Vo Thi Sau, HCMC'), ratio: '4x3', dark: true })}
         </div>
       </div>
     </div>
@@ -257,7 +257,12 @@ export function renderAbout() {
           <div class="split split--5-7">
             <div class="stack"><span class="kicker">${tr('Đội ngũ', 'Team')}</span><h2>${tr('Đội ngũ vận hành tại trường quay', 'The on-set operations team')}</h2><p class="lede">${tr('Đội ngũ gồm sản xuất, kỹ thuật, booking, đào tạo và vận hành sàn. Ảnh và hồ sơ lãnh đạo sẽ được cập nhật khi có tư liệu chính thức.', 'Production, engineering, booking, training and marketplace operations. Leadership photos and bios will be added when official assets are available.')}</p></div>
             <div class="grid grid--2" style="gap:12px">
-              ${['Đội sản xuất', 'Đội kỹ thuật', 'Đội booking & KOC', 'Đội đào tạo'].map((t) => `<div class="card" style="padding:10px">${media({ label: `Ảnh thật: ${t}`, ratio: '4x3' })}<div style="padding:6px"><strong style="font-family:var(--font-heading);font-size:.9375rem">${esc(t)}</strong></div></div>`).join('')}
+              ${[
+                { title: 'Đội sản xuất', src: '/images/team/doi-san-xuat.jpg' },
+                { title: 'Đội kỹ thuật', src: '/images/team/doi-ky-thuat.jpg' },
+                { title: 'Đội booking & KOC', src: '/images/team/doi-booking-koc.jpg' },
+                { title: 'Đội đào tạo', src: '/images/team/doi-dao-tao.jpg' },
+              ].map((team) => `<div class="card" style="padding:10px">${media({ src: team.src, alt: team.title, label: team.title, ratio: '4x3' })}<div style="padding:6px"><strong style="font-family:var(--font-heading);font-size:.9375rem">${esc(team.title)}</strong></div></div>`).join('')}
             </div>
           </div>
         </div>

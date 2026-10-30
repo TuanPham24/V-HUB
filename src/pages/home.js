@@ -164,8 +164,8 @@ function wheelSection() {
 function studioSection() {
   const thumbs = STUDIOS.slice(0, 4)
     .map(
-      (s, i) => `<button type="button" class="${i === 0 ? 'is-active' : ''}" data-studio-thumb="${esc(s.slug)}" aria-label="Xem ${esc(s.name)}">
-        ${media({ label: s.name, ratio: '4x3' })}
+      (s, i) => `<button type="button" class="${i === 0 ? 'is-active' : ''}" data-studio-thumb="${esc(s.slug)}" aria-pressed="${i === 0}" aria-label="Xem ${esc(s.name)}">
+        ${media({ src: s.images[0]?.src, pending: s.images[0]?.pending, alt: s.images[0]?.alt, label: s.images[0]?.pending ? s.images[0].label : s.name, ratio: '4x3' })}
       </button>`,
     )
     .join('')
@@ -175,9 +175,9 @@ function studioSection() {
         <div>
           <div class="viewer-360" id="home-360">
             <div class="viewer-360__stage" data-360-stage>
-              ${media({ label: tr('Ảnh toàn cảnh 360°: Super-Megalive Studio', '360° panorama: Super-Megalive Studio'), ratio: '16x10' })}
+              ${media({ src: STUDIOS[0].images[0]?.src, label: tr('Studio Megalive V-HUB', 'V-HUB Megalive studio'), ratio: '16x10' })}
               <a class="viewer-360__btn" href="#/studio#tham-quan-360">${icon('rotate')}${tr('Xem 360°', 'View 360°')}</a>
-              <span class="viewer-360__hint">${tr('Ảnh thật sẽ được thay khi có file toàn cảnh', 'Real panorama pending')}</span>
+              <span class="viewer-360__hint">${tr('Ảnh tĩnh — ảnh toàn cảnh 360° đang cập nhật', 'Still image — 360° panorama pending')}</span>
             </div>
           </div>
           <div class="thumb-row">${thumbs}</div>
@@ -270,7 +270,7 @@ function marketSection() {
           </div>
         </div>
         <div>
-          ${media({ label: `Ảnh thật: ${market.name} — ${market.imageLabel.replace('Ảnh thật: ', '')}`, ratio: '4x3', dark: true, badge: badgeDemo() })}
+          ${media({ src: market.imageSrc, label: market.imageLabel, ratio: '4x3', dark: true, badge: badgeDemo() })}
           <div class="grid grid--3 mt-3" style="gap:10px">
             ${getMarkets()
               .filter((m) => m.season === 1)
@@ -340,7 +340,7 @@ function kocSection() {
 function casesSection() {
   const cards = CASES.map(
     (c) => `<article class="case-card">
-      ${media({ label: c.imageLabel, ratio: '16x9', badge: badgeDemo() })}
+      ${media({ src: c.imageSrc, pending: c.imagePending, label: c.imageLabel, ratio: '16x9', badge: badgeDemo() })}
       <div class="case-card__body">
         <span class="xsmall muted">${esc(c.industry)} · ${esc(c.client)}</span>
         <h3 style="font-size:1.0625rem">${esc(c.title)}</h3>
@@ -464,6 +464,18 @@ export function render() {
         ${finalCta()}
       </main>`,
     mount(root) {
+      root.querySelectorAll('[data-studio-thumb]').forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const studio = STUDIOS.find((s) => s.slug === thumb.dataset.studioThumb)
+          const preview = root.querySelector('[data-360-stage] .media')
+          if (!studio || !preview) return
+          preview.outerHTML = media({ src: studio.images[0]?.src, pending: studio.images[0]?.pending, alt: studio.images[0]?.alt, label: studio.images[0]?.pending ? studio.images[0].label : studio.name, ratio: '16x10' })
+          root.querySelectorAll('[data-studio-thumb]').forEach((node) => {
+            node.classList.toggle('is-active', node === thumb)
+            node.setAttribute('aria-pressed', String(node === thumb))
+          })
+        })
+      })
       // Vòng quay: đổi nội dung panel
       const panel = root.querySelector('#wheel-panel')
       root.querySelectorAll('[data-wheel]').forEach((node) => {

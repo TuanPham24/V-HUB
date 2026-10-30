@@ -16,7 +16,7 @@ let globalBound = false
 const MEGA_FEATURE = () => {
   const m = nextMarket()
   return `<a class="mega__feature" href="#/cho-phien">
-    ${media({ label: `Ảnh thật: ${m.name}`, ratio: '16x9', dark: true })}
+    ${media({ src: m.imageSrc, label: m.imageLabel, ratio: '16x9', dark: true })}
     <div class="mega__feature-body">
       <span class="kicker kicker--plain" style="color:var(--primary-on-dark)">${tr('Phiên kế tiếp', 'Next session')}</span>
       <strong style="font-family:var(--font-heading);font-size:.9375rem">${esc(m.name)} · ${formatDate(m.heldAt)}</strong>

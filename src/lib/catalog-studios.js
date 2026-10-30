@@ -5,7 +5,7 @@
 
 /** @typedef {{id:string, label:string, pricePerHour:number, description:string, features:string[]}} StudioPackage */
 /** @typedef {{id:string, label:string, price:number, unit:string, note?:string}} Addon */
-/** @typedef {{id:string, slug:string, name:string, type:'super'|'standard'|'pod', typeLabel:string, area:number, capacity:number, pricePerHour:number, priceLabel:string, summary:string, equipment:string[], images:{src:string|null, alt:string, label:string}[], panoramaUrl:string|null, embedUrl:string|null, tags:string[]}} Studio */
+/** @typedef {{id:string, slug:string, name:string, type:'super'|'standard'|'pod', typeLabel:string, area:number, capacity:number, pricePerHour:number, priceLabel:string, summary:string, equipment:string[], images:{src:string|null, alt:string, label:string, pending?:boolean}[], panoramaUrl:string|null, embedUrl:string|null, tags:string[]}} Studio */
 
 /** @type {StudioPackage[]} */
 export const STUDIO_PACKAGES = [
@@ -63,8 +63,7 @@ export const STUDIOS = [
     summary: 'Sân khấu lớn nhất trong cụm 14 studio, dành cho Megalive, Super-Megalive và chương trình có khán giả.',
     equipment: ['6 camera (3 PTZ, 3 studio)', 'LED P3 12m × 4m', 'Hệ thống âm thanh line array', 'Bàn trộn hình 8 kênh', 'Đèn sân khấu 48 kênh', 'Phòng điều khiển riêng'],
     images: [
-      { src: '/images/studio/super-megalive-01.jpg', alt: 'Toàn cảnh Super-Megalive Studio', label: 'Ảnh thật: toàn cảnh Super-Megalive Studio' },
-      { src: '/images/studio/super-megalive-02.jpg', alt: 'Sân khấu LED Super-Megalive', label: 'Ảnh thật: sân khấu LED Super-Megalive' },
+      { src: '/images/studio/studio-megalive.jpg', alt: 'Toàn cảnh Studio Megalive V-HUB', label: 'Studio Megalive V-HUB' },
     ],
     panoramaUrl: null,
     embedUrl: null,
@@ -82,7 +81,7 @@ export const STUDIOS = [
     priceLabel: 'từ 2.800.000đ/giờ',
     summary: 'Phòng live cỡ trung cho chiến dịch nhiều khung giờ, phù hợp Daily Live quy mô lớn và Megalive ngành hàng.',
     equipment: ['4 camera', 'LED P2.5 6m × 3m', 'Âm thanh 4 loa', 'Bàn trộn hình 6 kênh', 'Đèn studio 24 kênh'],
-    images: [{ src: '/images/studio/megalive-01.jpg', alt: 'Không gian Megalive Studio 01', label: 'Ảnh thật: Megalive Studio 01' }],
+    images: [{ src: '/images/studio/studio-megalive.jpg', alt: 'Không gian Studio Megalive V-HUB', label: 'Studio Megalive V-HUB' }],
     panoramaUrl: null,
     embedUrl: null,
     tags: ['Megalive', 'Multi-cam 4'],
@@ -99,7 +98,7 @@ export const STUDIOS = [
     priceLabel: 'từ 1.800.000đ/giờ',
     summary: 'Studio tiêu chuẩn cho Daily Live: phông nền linh hoạt, thay đổi bố cục theo ngành hàng trong 30 phút.',
     equipment: ['3 camera', 'Phông nền module', 'Âm thanh 2 loa', 'Đèn studio 16 kênh', 'Teleprompter'],
-    images: [{ src: '/images/studio/tieu-chuan-02.jpg', alt: 'Studio Tiêu chuẩn 02', label: 'Ảnh thật: Studio Tiêu chuẩn 02' }],
+    images: [{ src: '/images/studio/studio-tieu-chuan.jpg', alt: 'Studio tiêu chuẩn V-HUB', label: 'Studio tiêu chuẩn V-HUB' }],
     panoramaUrl: null,
     embedUrl: null,
     tags: ['Daily Live', 'Phông module'],
@@ -116,7 +115,7 @@ export const STUDIOS = [
     priceLabel: 'từ 1.800.000đ/giờ',
     summary: 'Studio tiêu chuẩn có bếp và quầy demo, phù hợp ngành thực phẩm, gia dụng và nông sản.',
     equipment: ['3 camera', 'Bếp demo và quầy chế biến', 'Âm thanh 2 loa', 'Đèn studio 16 kênh', 'Tủ mát'],
-    images: [{ src: '/images/studio/tieu-chuan-03.jpg', alt: 'Studio Tiêu chuẩn 03 với bếp demo', label: 'Ảnh thật: Studio Tiêu chuẩn 03' }],
+    images: [{ src: null, alt: 'Studio Tiêu chuẩn 03 có bếp demo', label: 'Đang chờ ảnh: Studio Tiêu chuẩn 03 có bếp demo và quầy chế biến', pending: true }],
     panoramaUrl: null,
     embedUrl: null,
     tags: ['Daily Live', 'Bếp demo'],
@@ -133,7 +132,7 @@ export const STUDIOS = [
     priceLabel: 'từ 650.000đ/giờ',
     summary: 'Phòng nhỏ cho nhà sáng tạo mới: đủ đèn, micro và điện thoại gimbal, đặt theo giờ.',
     equipment: ['2 camera', 'Đèn LED 3 điểm', 'Micro không dây', 'Gimbal điện thoại', 'Màn hình review'],
-    images: [{ src: '/images/studio/mini-pod-01.jpg', alt: 'Mini Pod 01', label: 'Ảnh thật: Mini Pod 01' }],
+    images: [{ src: null, alt: 'Mini Pod 01', label: 'Đang chờ ảnh: Mini Pod 01 — phòng nhỏ với đèn, micro và điện thoại gimbal', pending: true }],
     panoramaUrl: null,
     embedUrl: null,
     tags: ['Nhà sáng tạo mới', 'Theo giờ'],
@@ -150,7 +149,7 @@ export const STUDIOS = [
     priceLabel: 'từ 650.000đ/giờ',
     summary: 'Phòng nhỏ có phông nền thay đổi, phù hợp video review và phiên live ngắn cho học viên.',
     equipment: ['2 camera', 'Phông nền 3 màu', 'Đèn LED 3 điểm', 'Micro không dây', 'Teleprompter nhỏ'],
-    images: [{ src: '/images/studio/mini-pod-02.jpg', alt: 'Mini Pod 02', label: 'Ảnh thật: Mini Pod 02' }],
+    images: [{ src: null, alt: 'Mini Pod 02', label: 'Đang chờ ảnh: Mini Pod 02 — phòng nhỏ có phông nền thay đổi để quay review', pending: true }],
     panoramaUrl: null,
     embedUrl: null,
     tags: ['Học viên', 'Video review'],

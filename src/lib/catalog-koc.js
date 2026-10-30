@@ -243,14 +243,14 @@ export const AMBASSADORS = [
     role: 'Đại sứ KOCViet 2026',
     since: '2026',
     note: 'Đại sứ khu vực TP.HCM, tham gia 6 phiên Chợ Phiên và 2 chương trình Megalive.',
-    imageSrc: '/images/koc/dai-su-ngoc-han.jpg',
+    imageSrc: KOCS.find((k) => k.slug === 'ngoc-han').avatarSrc,
   },
   {
     name: 'Hữu Tài',
     role: 'Đại sứ KOCViet — miền Tây',
     since: '2026',
     note: 'Đại diện nhóm nhà sáng tạo nông sản, phụ trách đào tạo KOC mới tại An Giang.',
-    imageSrc: '/images/koc/dai-su-huu-tai.jpg',
+    imageSrc: KOCS.find((k) => k.slug === 'huu-tai').avatarSrc,
   },
 ]
 

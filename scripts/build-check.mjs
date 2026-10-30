@@ -62,6 +62,12 @@ if (!urls.length) {
   console.error('✗ Sitemap rỗng')
 }
 
+try {
+  execFileSync(process.execPath, ['scripts/check-images.mjs'], { cwd: root, stdio: 'inherit' })
+} catch (_) {
+  failed += 1
+}
+
 if (failed) {
   console.error(`\nBuild kiểm tra thất bại (${failed} lỗi).`)
   process.exit(1)

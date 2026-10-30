@@ -168,7 +168,7 @@ function provincePage(m) {
         <div class="split split--7-5">
           <div class="stack">
             <h2>${tr('Phim ngắn về vùng đất', 'Short film about the region')}</h2>
-            ${media({ label: tr('Video thật: phim ngắn giới thiệu vùng đất (đang chờ tư liệu)', 'Real video: regional short film (assets pending)'), ratio: '16x9' })}
+            ${media({ pending: true, label: tr(`Đang chờ phim ngắn giới thiệu ${m.name}`, `Regional short film pending: ${m.name}`), ratio: '16x9' })}
             <p class="small muted">${tr('Phim ngắn 90 giây được sản xuất trước phiên và phát trên các nền tảng của V-HUB.', 'A 90-second film produced before the session and published on V-HUB platforms.')}</p>
           </div>
           <div class="stack">
@@ -191,9 +191,9 @@ function provincePage(m) {
     </section>
     <section class="section section--alt">
       <div class="container">
-        ${sectionHead({ kicker: tr('Album', 'Album'), title: tr('Hình ảnh trao tặng và hậu trường', 'Handover and behind-the-scenes photos'), sub: tr('Ảnh thật sẽ được cập nhật sau mỗi phiên. Khung dưới đây giữ đúng tỉ lệ hiển thị.', 'Real photos are added after each session. Frames below keep the intended aspect ratio.') })}
+        ${sectionHead({ kicker: tr('Album', 'Album'), title: tr('Hình ảnh trao tặng và hậu trường', 'Handover and behind-the-scenes photos'), sub: tr('Đang chờ ảnh trao tặng và hậu trường đúng từng phiên.', 'Handover and behind-the-scenes images for each session are pending.') })}
         <div class="grid grid--3">
-          ${[1, 2, 3].map((i) => media({ label: `Ảnh thật: ${m.name} — album ${i}`, ratio: '4x3' })).join('')}
+          ${['Trao tặng', 'Hậu trường', 'Toàn cảnh phiên'].map((kind) => media({ pending: true, label: tr(`Đang chờ ảnh: ${kind} — Chợ Phiên ${m.name}`, `Session image pending: ${kind} — ${m.name}`), ratio: '4x3' })).join('')}
         </div>
       </div>
     </section>

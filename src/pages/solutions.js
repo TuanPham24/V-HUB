@@ -77,7 +77,7 @@ function overviewPage() {
             <a class="btn btn--ghost" href="#/lien-he">${tr('Đặt lịch tư vấn', 'Book a consultation')}</a>
           </div>
         </div>
-        ${media({ label: tr('Ảnh thật: đội ngũ vận hành V-HUB tại phòng điều khiển', 'Real photo: V-HUB operations team in the control room'), ratio: '4x3' })}
+        ${media({ src: '/images/operations/doi-van-hanh.jpg', label: tr('Đội ngũ vận hành V-HUB tại phòng điều khiển', 'V-HUB operations team in the control room'), ratio: '4x3' })}
       </div>
     </div>
   </div>
@@ -154,7 +154,7 @@ function audiencePage(slug) {
             <a class="btn ${isBrand ? 'btn--outline-light' : 'btn--ghost'}" href="#/studio">${tr('Xem studio', 'View studios')}</a>
           </div>
         </div>
-        ${media({ src: null, label: isBrand ? tr('Ảnh thật: phiên live tại Super-Megalive Studio', 'Real photo: live session at Super-Megalive Studio') : isLocal ? tr('Ảnh thật: vườn trái cây miền Tây', 'Real photo: Mekong orchard') : tr('Ảnh thật: đội ngũ doanh nghiệp tại studio V-HUB', 'Real photo: business team at V-HUB studio'), ratio: '4x3', dark: isBrand })}
+        ${media({ src: isBrand ? '/images/studio/studio-megalive.jpg' : isLocal ? '/images/cho-phien/vinh-long.jpg' : '/images/team/doi-booking-koc.jpg', label: isBrand ? tr('Studio Megalive V-HUB', 'V-HUB Megalive studio') : isLocal ? tr('Vườn trái cây Vĩnh Long', 'Vinh Long orchard') : tr('Đội booking và KOC phối hợp tại V-HUB', 'Booking team and creators collaborating at V-HUB'), ratio: '4x3', dark: isBrand })}
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@ function audiencePage(slug) {
     <section class="section">
       <div class="container">
         <div class="split split--7-5">
-          <div>${media({ label: tr('Ảnh thật: dashboard báo cáo phiên live (dữ liệu mẫu)', 'Real screenshot: live session report dashboard (sample data)'), ratio: '16x10', badge: badgeDemo() })}</div>
+          <div>${media({ pending: true, label: tr('Đang chờ ảnh: dashboard báo cáo phiên live với dữ liệu minh họa', 'Image pending: live session reporting dashboard with sample data'), ratio: '16x10', badge: badgeDemo() })}</div>
           <div class="stack">
             <span class="kicker">${tr('Báo cáo', 'Reporting')}</span>
             <h2>${tr('Bạn nhận báo cáo gì sau mỗi phiên?', 'What reporting do you get?')}</h2>
@@ -332,7 +332,7 @@ function solutionPage(solution) {
             ${solution.bullets.map((b) => `<li>${icon('check')}<span>${esc(b)}</span></li>`).join('')}
           </ul>
         </div>
-        ${media({ label: tr('Ảnh thật: triển khai dịch vụ tại V-HUB', 'Real photo: service delivery at V-HUB'), ratio: '4x3' })}
+        ${media({ src: solution.imageSrc, pending: solution.imagePending, label: solution.imageLabel || tr('Triển khai dịch vụ tại V-HUB', 'Service delivery at V-HUB'), ratio: '4x3' })}
       </div>
     </div>
   </div>

@@ -33,7 +33,7 @@ function schedulePage() {
           <p class="lede">${tr('Toàn bộ phiên Daily Live, Megalive và Super-Megalive. Giờ hiển thị theo múi giờ Việt Nam (UTC+7). Huy hiệu LIVE chỉ xuất hiện khi phiên đang phát.', 'All Daily Live, Megalive and Super-Megalive sessions. Times are Vietnam time (UTC+7). The LIVE badge only appears while a session is on air.')}</p>
           <div class="row" style="gap:10px"><a class="btn" href="${ORG.zalo}" target="_blank" rel="noopener">${icon('bell', 'btn__icon')}<span>${tr('Nhận nhắc qua Zalo', 'Get reminders on Zalo')}</span></a><a class="btn btn--ghost" href="#/cho-phien">${tr('Chợ Phiên Phương Nam', 'Southern Market Days')}</a></div>
         </div>
-        ${media({ label: tr('Ảnh thật: phòng điều khiển đang phát sóng', 'Real photo: control room on air'), ratio: '4x3', badge: live ? badgeLive() : badgeDemo() })}
+        ${media({ src: '/images/operations/phong-dieu-khien.jpg', label: tr('Phòng điều khiển đang phát sóng', 'Control room on air'), ratio: '4x3', badge: live ? badgeLive() : badgeDemo() })}
       </div>
     </div>
   </div>
